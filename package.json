@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node index.js",
+    "start": "node server.js",
     "test": "node test.js",
     "build": "ng build",
     "lint": "ng lint",
@@ -48,9 +48,10 @@
     "typescript": "~3.1.1"
   },
   "engines": {
-    "node": "8.9.4"
+    "node": "8.9.4",
+    "npm": "6.4.1"
   },
-  "main": "index.js",
+  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/viniciusufop/receitas-front"
