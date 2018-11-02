@@ -507,7 +507,7 @@ var ConsultaComponent = /** @class */ (function () {
         }
     };
     ConsultaComponent.prototype.editar = function (id) {
-        this.router.navigate(['/cadastro-receita', id]);
+        this.router.navigate(['/cadastro-receita/', id]);
     };
     ConsultaComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -537,7 +537,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConfigService", function() { return ConfigService; });
 var ConfigService = /** @class */ (function () {
     function ConfigService() {
-        this.urlService = 'https://receitas-back-vfs.herokuapp.com/api/v1';
+        // this.urlService = 'https://receitas-back-vfs.herokuapp.com/api/v1';
+        this.urlService = 'http://localhost:8080/api/v1';
     }
     ConfigService.prototype.getUrlService = function () {
         return this.urlService;
@@ -580,10 +581,11 @@ var ReceitaService = /** @class */ (function () {
         this.http = http;
         this.configService = configService;
         this.baseUrlService = '';
+        this.headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({ 'Content-Type': 'application/json; charset=utf-8' });
         /**SETANDO A URL DO SERVIÇO REST QUE VAI SER ACESSADO */
         this.baseUrlService = configService.getUrlService() + '/receitas';
         /*ADICIONANDO O JSON NO HEADER */
-        this.headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({ 'Content-Type': 'application/json;charset=UTF-8' });
+        // this.headers = new HttpHeaders({ 'Content-Type': 'application/json;charset=UTF-8' });
         // this.options = new RequestOptions({ headers: this.headers });
     }
     /**CONSULTA TODAS AS RECEITAS CADASTRADAS */
@@ -593,7 +595,7 @@ var ReceitaService = /** @class */ (function () {
     /**ADICIONA UMA NOVA RECEITA */
     ReceitaService.prototype.addReceita = function (receita) {
         // this.http.post(){{this.headers}}
-        return this.http.post(this.baseUrlService, JSON.stringify(receita));
+        return this.http.post(this.baseUrlService, JSON.stringify(receita), { headers: this.headers });
     };
     /**EXCLUI UMA RECEITA */
     ReceitaService.prototype.excluirReceita = function (codigo) {
@@ -601,11 +603,11 @@ var ReceitaService = /** @class */ (function () {
     };
     /**CONSULTA UMA RECEITA PELO CÓDIGO */
     ReceitaService.prototype.getReceita = function (codigo) {
-        return this.http.get(this.baseUrlService + codigo);
+        return this.http.get(this.baseUrlService + '/' + codigo);
     };
     /**ATUALIZA INFORMAÇÕES DA RECEITA */
     ReceitaService.prototype.atualizarReceita = function (receita) {
-        return this.http.put(this.baseUrlService, JSON.stringify(receita));
+        return this.http.put(this.baseUrlService + '/' + receita.id, JSON.stringify(receita), { headers: this.headers });
     };
     ReceitaService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
