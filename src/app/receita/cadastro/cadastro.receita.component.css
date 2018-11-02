@@ -1,6 +1,5 @@
 form{
   position:fixed;
-
   left:30%;
   width:450px;
   height: 460px;
@@ -10,7 +9,6 @@ form{
 }
 
 h3{
-
   background-color: #213E8D;
   color: white;
   text-align: center;
@@ -28,7 +26,6 @@ button{
 }
 
 label{
-
   margin-left: 8px;
   color: #213E8D;
 }

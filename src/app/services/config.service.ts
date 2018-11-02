@@ -1,7 +1,7 @@
 export class ConfigService {
-  private urlService:string;
+  private urlService: string;
 
-  constructor(){
+  constructor() {
     this.urlService = 'https://receitas-back-vfs.herokuapp.com/api/v1';
   }
 

@@ -1,15 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
 import {Router} from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-
-import {PessoaService} from '../../services/pessoa.service';
-
-import {Pessoa} from '../../services/pessoa';
-
+import {Receita} from '../../services/receita';
+import {ReceitaService} from '../../services/receita.service';
 import {Response} from '../../services/response';
-
-import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-cadastro-receita',
@@ -18,51 +12,41 @@ import { Observable } from 'rxjs/Observable';
 })
 export class CadastroReceitaComponent implements OnInit {
 
-  private titulo:string;
-  private pessoa:Pessoa = new Pessoa();
+  private titulo: string;
+  private receita: Receita = new Receita();
 
-  constructor(private pessoaService: PessoaService,
+  constructor(private receitaService: ReceitaService,
               private router: Router,
-              private activatedRoute: ActivatedRoute){}
+              private activatedRoute: ActivatedRoute) {
+  }
 
   /*CARREGADO NA INICIALIZAÇÃO DO COMPONENTE */
   ngOnInit() {
-
-    this.activatedRoute.params.subscribe(parametro=>{
-
-      if(parametro["codigo"] == undefined){
-
-        this.titulo = "Novo Cadastro de Pessoa";
+    this.activatedRoute.params.subscribe(parametro => {
+      if (parametro['id'] === undefined) {
+        this.titulo = 'Novo Cadastro de Receita';
+      } else {
+        this.titulo = 'Editar Cadastro de Receita';
+        this.receitaService.getReceita(Number(parametro['id'])).subscribe(res => this.receita = res);
       }
-      else{
-
-        this.titulo = "Editar Cadastro de Pessoa";
-        this.pessoaService.getPessoa(Number(parametro["codigo"])).subscribe(res => this.pessoa = res);
-      }
-
-
     });
   }
 
   /*FUNÇÃO PARA SALVAR UM NOVO REGISTRO OU ALTERAÇÃO EM UM REGISTRO EXISTENTE */
-  salvar():void {
-
+  salvar(): void {
     /*SE NÃO TIVER CÓDIGO VAMOS INSERIR UM NOVO REGISTRO */
-    if(this.pessoa.codigo == undefined){
-
+    if (this.receita.id === undefined) {
       /*CHAMA O SERVIÇO PARA ADICIONAR UMA NOVA PESSOA */
-      this.pessoaService.addPessoa(this.pessoa).subscribe(response => {
-
-          //PEGA O RESPONSE DO RETORNO DO SERVIÇO
-          let res:Response = <Response>response;
+      this.receitaService.addReceita(this.receita).subscribe(response => {
+          // PEGA O RESPONSE DO RETORNO DO SERVIÇO
+          const res: Response = <Response>response;
 
           /*SE RETORNOU 1 DEVEMOS MOSTRAR A MENSAGEM DE SUCESSO
           E LIMPAR O FORMULÁRIO PARA INSERIR UM NOVO REGISTRO*/
-          if(res.codigo == 1){
+          if (res.codigo === 1) {
             alert(res.mensagem);
-            this.pessoa = new Pessoa();
-          }
-          else{
+            this.receita = new Receita();
+          } else {
             /*
             ESSA MENSAGEM VAI SER MOSTRADA CASO OCORRA ALGUMA EXCEPTION
             NO SERVIDOR (CODIGO = 0)*/
@@ -71,26 +55,20 @@ export class CadastroReceitaComponent implements OnInit {
         },
         (erro) => {
           /**AQUI VAMOS MOSTRAR OS ERROS NÃO TRATADOS
-           EXEMPLO: SE APLICAÇÃO NÃO CONSEGUIR FAZER UMA REQUEST NA API                        */
+           EXEMPLO: SE APLICAÇÃO NÃO CONSEGUIR FAZER UMA REQUEST NA API*/
           alert(erro);
         });
-
-    }
-    else{
-
+    } else {
       /*AQUI VAMOS ATUALIZAR AS INFORMAÇÕES DE UM REGISTRO EXISTENTE */
-      this.pessoaService.atualizarPessoa(this.pessoa).subscribe(response => {
-
-          //PEGA O RESPONSE DO RETORNO DO SERVIÇO
-          let res:Response = <Response>response;
-
+      this.receitaService.atualizarReceita(this.receita).subscribe(response => {
+          // PEGA O RESPONSE DO RETORNO DO SERVIÇO
+          const res: Response = <Response>response;
           /*SE RETORNOU 1 DEVEMOS MOSTRAR A MENSAGEM DE SUCESSO
             E REDIRECIONAR O USUÁRIO PARA A PÁGINA DE CONSULTA*/
-          if(res.codigo == 1){
+          if (res.codigo === 1) {
             alert(res.mensagem);
-            this.router.navigate(['/consulta-pessoa']);
-          }
-          else{
+            this.router.navigate(['/consulta-receita']);
+          } else {
             /*ESSA MENSAGEM VAI SER MOSTRADA CASO OCORRA ALGUMA EXCEPTION
             NO SERVIDOR (CODIGO = 0)*/
             alert(res.mensagem);
@@ -98,11 +76,10 @@ export class CadastroReceitaComponent implements OnInit {
         },
         (erro) => {
           /**AQUI VAMOS MOSTRAR OS ERROS NÃO TRATADOS
-           EXEMPLO: SE APLICAÇÃO NÃO CONSEGUIR FAZER UMA REQUEST NA API                        */
+           EXEMPLO: SE APLICAÇÃO NÃO CONSEGUIR FAZER UMA REQUEST NA API*/
           alert(erro);
         });
     }
-
   }
-
+}
 

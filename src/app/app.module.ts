@@ -1,16 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import {ConfigService} from './services/config.service';
+import {ReceitaService} from './services/receita.service';
+import {MenuComponent} from './menu/menu.component';
+import {HomeComponent} from './home/home.component';
+import {ConsultaComponent} from './receita/consulta/consulta.receita.component';
+import {CadastroReceitaComponent} from './receita/cadastro/cadastro.receita.component';
+import {FormsModule} from '@angular/forms';
+import {routing} from '../app.routes';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent,
+    HomeComponent,
+    ConsultaComponent,
+    CadastroReceitaComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    routing
   ],
-  providers: [],
+  providers: [ConfigService, ReceitaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
