@@ -9,8 +9,7 @@ const appRoutes: Routes = [
   { path: 'home',                    component: HomeComponent },
   { path: '',                        component: HomeComponent },
   { path: 'consulta-receita',         component: ConsultaComponent },
-  { path: 'cadastro-receita',         component: CadastroReceitaComponent },
-  { path: 'cadastro-receita/:id', component: CadastroReceitaComponent }
+  { path: 'cadastro-receita',         component: CadastroReceitaComponent }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

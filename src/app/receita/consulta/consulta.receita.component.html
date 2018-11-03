@@ -6,7 +6,6 @@
     <th>Descrição</th>
     <th>Vencimento</th>
     <th>Valor</th>
-    <th>Editar</th>
     <th>Excluir</th>
   </tr>
   </thead>
@@ -14,13 +13,12 @@
   <tbody>
   <tr *ngFor="let receita of receitas; let i = index;">
     <td>{{ receita.descricao }}</td>
-    <td>{{ receita.vencimento }}</td>
+    <td>{{ receita.vencimento  | date: 'dd/MM/yyyy'}}}</td>
     <td>{{ receita.valor }}</td>
     <!--
     <td *ngIf='receita.ativo'>Sim</td>
     <td *ngIf='!receita.ativo'>Não</td>
     -->
-    <td><a (click)="editar(receita.id);">Editar</a></td>
     <td><a (click)="excluir(receita.id, i);">Excluir</a></td>
   </tr>
   <tr>

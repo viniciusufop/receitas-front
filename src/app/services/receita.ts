@@ -1,7 +1,7 @@
 export class Receita {
-  id:number;
-  descricao:string;
-  vencimento:string;
-  valor:number;
+  id: number;
+  descricao: string;
+  vencimento: Date;
+  valor: number;
 }
 

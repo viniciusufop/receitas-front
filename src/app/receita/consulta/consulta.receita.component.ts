@@ -50,9 +50,4 @@ export class ConsultaComponent implements OnInit {
         });
     }
   }
-
-  editar(id: number): void {
-    this.router.navigate(['/cadastro-receita/', id]);
-
-  }
 }

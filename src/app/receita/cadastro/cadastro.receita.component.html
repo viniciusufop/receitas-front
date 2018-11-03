@@ -3,18 +3,50 @@
   <br/>
   <h3>{{titulo}}</h3>
 
-  <label>Descrição:
-    <input type="input" name="descricao" size="30" [(ngModel)]="receita.descricao"/>
-  </label><br/><br/>
+  <mat-form-field>
+    <input matInput placeholder="Descrição" size="30" name="descricao"
+           [formControl]="descricaoFormControl"
+           [(ngModel)]="descricao"
+           required>
+  </mat-form-field><br/><br/>
 
-  <label>vencimento:
-    <input type="input" name="vencimento" size="10" [(ngModel)]="receita.vencimento"/>
-  </label><br/><br/>
 
-  <label>valor:
-    <input type="input"  name="vencimento" size="18" [(ngModel)]="receita.valor"/>
-  </label><br/><br/>
+  <mat-form-field>
+    <input matInput [matDatepicker]="myDatepicker" placeholder="Vencimento"  name="vencimento"
+           [formControl]="dataVencimentoFormControl"
+           [(ngModel)]="dataVencimento"
+           required>
+    <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+    <mat-datepicker #myDatepicker></mat-datepicker>
+  </mat-form-field><br/><br/>
+
+  <mat-form-field>
+    <input matInput placeholder="Valor" type="number" name="valor"
+           [formControl]="valorFormControl"
+           [(ngModel)]="valor"
+           required>
+    <span matPrefix>R$&nbsp;</span>
+  </mat-form-field><br/><br/>
+
 <!--
+
+  <mat-form-field>
+    <input matInput placeholder="Descrição" size="30"
+          name="descricao" [(ngModel)]="receita.descricao" required>
+  </mat-form-field><br/><br/>
+
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="myDatepicker" placeholder="Vencimento"
+           name="vencimento" [(ngModel)]="receita.vencimento" required>
+    <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+    <mat-datepicker #myDatepicker></mat-datepicker>
+  </mat-form-field><br/><br/>
+
+  <mat-form-field>
+    <input matInput placeholder="Valor" type="number" name="vencimento" [(ngModel)]="receita.valor" required>
+    <span matPrefix>R$&nbsp;</span>
+  </mat-form-field><br/><br/>
   <label>Registro Ativo:
     <input type="radio" name="ativo" [(ngModel)]="pessoa.ativo" [value]="true">Sim
     <input type="radio" name="ativo" [(ngModel)]="pessoa.ativo" [value]="false">Não<br>

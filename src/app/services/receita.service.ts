@@ -1,20 +1,21 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { HttpHeaders} from '@angular/common/http';
-import {Receita} from '../services/receita';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import {ConfigService} from './config.service';
+import {Receita} from './receita';
+import {Response} from './response';
+import {map} from 'rxjs/operators';
 
 @Injectable()
 export class ReceitaService {
-  private baseUrlService = '';
-  private headers: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
+  private baseUrlService;
+  private options;
+
   constructor(private http: HttpClient,
               private configService: ConfigService) {
     /**SETANDO A URL DO SERVIÇO REST QUE VAI SER ACESSADO */
     this.baseUrlService = configService.getUrlService() + '/receitas';
-    /*ADICIONANDO O JSON NO HEADER */
-    // this.headers = new HttpHeaders({ 'Content-Type': 'application/json;charset=UTF-8' });
-    // this.options = new RequestOptions({ headers: this.headers });
+    /** ADICIONANDO O JSON NO HEADER */
+    this.options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
   }
 
   /**CONSULTA TODAS AS RECEITAS CADASTRADAS */
@@ -24,23 +25,12 @@ export class ReceitaService {
 
   /**ADICIONA UMA NOVA RECEITA */
   addReceita(receita: Receita) {
-    // this.http.post(){{this.headers}}
-    return this.http.post(this.baseUrlService, JSON.stringify(receita), { headers: this.headers});
+    // let response: Response;
+    return this.http.post<Response>(this.baseUrlService, JSON.stringify(receita), this.options)
+      .pipe(map((res: HttpResponse<Response>) => res.body ));
   }
   /**EXCLUI UMA RECEITA */
   excluirReceita(codigo: number) {
-
-    return this.http.delete(this.baseUrlService + codigo);
+    return this.http.delete(this.baseUrlService  + '/' + codigo);
   }
-
-  /**CONSULTA UMA RECEITA PELO CÓDIGO */
-  getReceita(codigo: number) {
-    return this.http.get<Receita>(this.baseUrlService+ '/' + codigo);
-  }
-
-  /**ATUALIZA INFORMAÇÕES DA RECEITA */
-  atualizarReceita(receita: Receita) {
-    return this.http.put(this.baseUrlService + '/' + receita.id, JSON.stringify(receita),{ headers: this.headers});
-  }
-
 }
