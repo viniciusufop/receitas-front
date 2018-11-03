@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Receita} from '../../services/receita';
 import {ReceitaService} from '../../services/receita.service';
-import {Response} from '../../services/response';
 import {FormControl, Validators} from '@angular/forms';
 
 @Component({
@@ -36,31 +35,16 @@ export class CadastroReceitaComponent implements OnInit {
 
   /*FUNÇÃO PARA SALVAR UM NOVO REGISTRO OU ALTERAÇÃO EM UM REGISTRO EXISTENTE */
   salvar(): void {
-    /*CHAMA O SERVIÇO PARA ADICIONAR UMA NOVA PESSOA */
-
+    /*CHAMA O SERVIÇO PARA ADICIONAR UMA NOVA RECEITA */
     const receita: Receita = new Receita();
     receita.descricao = this.descricao;
     receita.vencimento = this.dataVencimento;
     receita.valor = this.valor;
     this.receitaService.addReceita(receita).subscribe(response => {
-      // PEGA O RESPONSE DO RETORNO DO SERVIÇO
-      const res: Response = <Response>response;
-
-      /*SE RETORNOU 1 DEVEMOS MOSTRAR A MENSAGEM DE SUCESSO
-      E LIMPAR O FORMULÁRIO PARA INSERIR UM NOVO REGISTRO*/
-      if (res.codigo === 1) {
-        alert(res.mensagem);
-      } else {
-        /*
-        ESSA MENSAGEM VAI SER MOSTRADA CASO OCORRA ALGUMA EXCEPTION
-        NO SERVIDOR (CODIGO = 0)*/
-        alert(res.mensagem);
-      }
-    },
-    (erro) => {
-      /**AQUI VAMOS MOSTRAR OS ERROS NÃO TRATADOS
-       EXEMPLO: SE APLICAÇÃO NÃO CONSEGUIR FAZER UMA REQUEST NA API*/
-      alert(erro);
+      this.router.navigate(['/consulta-receita']);
+      // TODO redirecionar para lista
+    }, (error) => {
+        alert(error);
     });
   }
 }

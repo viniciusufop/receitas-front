@@ -360,29 +360,17 @@ var CadastroReceitaComponent = /** @class */ (function () {
     };
     /*FUNÇÃO PARA SALVAR UM NOVO REGISTRO OU ALTERAÇÃO EM UM REGISTRO EXISTENTE */
     CadastroReceitaComponent.prototype.salvar = function () {
-        /*CHAMA O SERVIÇO PARA ADICIONAR UMA NOVA PESSOA */
+        var _this = this;
+        /*CHAMA O SERVIÇO PARA ADICIONAR UMA NOVA RECEITA */
         var receita = new _services_receita__WEBPACK_IMPORTED_MODULE_2__["Receita"]();
         receita.descricao = this.descricao;
         receita.vencimento = this.dataVencimento;
         receita.valor = this.valor;
         this.receitaService.addReceita(receita).subscribe(function (response) {
-            // PEGA O RESPONSE DO RETORNO DO SERVIÇO
-            var res = response;
-            /*SE RETORNOU 1 DEVEMOS MOSTRAR A MENSAGEM DE SUCESSO
-            E LIMPAR O FORMULÁRIO PARA INSERIR UM NOVO REGISTRO*/
-            if (res.codigo === 1) {
-                alert(res.mensagem);
-            }
-            else {
-                /*
-                ESSA MENSAGEM VAI SER MOSTRADA CASO OCORRA ALGUMA EXCEPTION
-                NO SERVIDOR (CODIGO = 0)*/
-                alert(res.mensagem);
-            }
-        }, function (erro) {
-            /**AQUI VAMOS MOSTRAR OS ERROS NÃO TRATADOS
-             EXEMPLO: SE APLICAÇÃO NÃO CONSEGUIR FAZER UMA REQUEST NA API*/
-            alert(erro);
+            _this.router.navigate(['/consulta-receita']);
+            // TODO redirecionar para lista
+        }, function (error) {
+            alert(error);
         });
     };
     CadastroReceitaComponent = __decorate([
@@ -420,7 +408,7 @@ module.exports = "table {\r\n  border-collapse: collapse;\r\n  width: 100%;\r\n}
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>{{titulo}}</h3>\r\n\r\n<table>\r\n  <thead>\r\n  <tr>\r\n    <th>Descrição</th>\r\n    <th>Vencimento</th>\r\n    <th>Valor</th>\r\n    <th>Excluir</th>\r\n  </tr>\r\n  </thead>\r\n\r\n  <tbody>\r\n  <tr *ngFor=\"let receita of receitas; let i = index;\">\r\n    <td>{{ receita.descricao }}</td>\r\n    <td>{{ receita.vencimento  | date: 'dd/MM/yyyy'}}}</td>\r\n    <td>{{ receita.valor }}</td>\r\n    <!--\r\n    <td *ngIf='receita.ativo'>Sim</td>\r\n    <td *ngIf='!receita.ativo'>Não</td>\r\n    -->\r\n    <td><a (click)=\"excluir(receita.id, i);\">Excluir</a></td>\r\n  </tr>\r\n  <tr>\r\n    <td colspan=\"6\" style=\"text-align: right;\">Total de Registros: {{ receitas.length }}</td>\r\n  </tr>\r\n  </tbody>\r\n</table>\r\n"
+module.exports = "<h3>{{titulo}}</h3>\r\n\r\n<table>\r\n  <thead>\r\n  <tr>\r\n    <th>Descrição</th>\r\n    <th>Vencimento</th>\r\n    <th>Valor</th>\r\n    <th>Excluir</th>\r\n  </tr>\r\n  </thead>\r\n\r\n  <tbody>\r\n  <tr *ngFor=\"let receita of receitas; let i = index;\">\r\n    <td>{{ receita.descricao }}</td>\r\n    <td>{{ receita.vencimento  | date: 'dd/MM/yyyy'}}</td>\r\n    <td>{{ receita.valor }}</td>\r\n    <!--\r\n    <td *ngIf='receita.ativo'>Sim</td>\r\n    <td *ngIf='!receita.ativo'>Não</td>\r\n    -->\r\n    <td><a (click)=\"excluir(receita.id, i);\">Excluir</a></td>\r\n  </tr>\r\n  <tr>\r\n    <td colspan=\"6\" style=\"text-align: right;\">Total de Registros: {{ receitas.length }}</td>\r\n  </tr>\r\n  </tbody>\r\n</table>\r\n"
 
 /***/ }),
 
@@ -571,7 +559,6 @@ var ReceitaService = /** @class */ (function () {
     };
     /**ADICIONA UMA NOVA RECEITA */
     ReceitaService.prototype.addReceita = function (receita) {
-        // let response: Response;
         return this.http.post(this.baseUrlService, JSON.stringify(receita), this.options)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (res) { return res.body; }));
     };

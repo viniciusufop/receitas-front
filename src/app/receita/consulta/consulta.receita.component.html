@@ -13,7 +13,7 @@
   <tbody>
   <tr *ngFor="let receita of receitas; let i = index;">
     <td>{{ receita.descricao }}</td>
-    <td>{{ receita.vencimento  | date: 'dd/MM/yyyy'}}}</td>
+    <td>{{ receita.vencimento  | date: 'dd/MM/yyyy'}}</td>
     <td>{{ receita.valor }}</td>
     <!--
     <td *ngIf='receita.ativo'>Sim</td>
