@@ -31,12 +31,5 @@
     <mat-error *ngIf="valorFormControl.invalid">{{getErrorValorMessage()}}</mat-error>
   </mat-form-field><br/><br/>
 
-<!--
-  <label>Registro Ativo:
-    <input type="radio" name="ativo" [(ngModel)]="pessoa.ativo" [value]="true">Sim
-    <input type="radio" name="ativo" [(ngModel)]="pessoa.ativo" [value]="false">Não<br>
-  </label><br/><br/>
-  -->
   <button type="submit" [disabled]="desabilitarSalvar()">Salvar</button>
-
 </form>

@@ -307,7 +307,7 @@ module.exports = "form{\r\n  position:fixed;\r\n  left:30%;\r\n  width:450px;\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form (ngSubmit)=\"salvar()\">\r\n\r\n  <br/>\r\n  <h3>{{titulo}}</h3>\r\n\r\n  <mat-form-field>\r\n    <input matInput placeholder=\"Descrição\" size=\"30\" name=\"descricao\"\r\n           [formControl]=\"descricaoFormControl\"\r\n           [(ngModel)]=\"receita.descricao\"\r\n           required>\r\n    <mat-error *ngIf=\"descricaoFormControl.invalid\">{{getErrorDescricaoMessage()}}</mat-error>\r\n  </mat-form-field><br/><br/>\r\n\r\n\r\n  <mat-form-field>\r\n    <input matInput [matDatepicker]=\"myDatepicker\" placeholder=\"Vencimento\" name=\"vencimento\"\r\n           [formControl]=\"dataVencimentoFormControl\"\r\n           [(ngModel)]=\"receita.vencimento\"\r\n           required>\r\n    <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n    <mat-datepicker #myDatepicker></mat-datepicker>\r\n    <mat-error *ngIf=\"dataVencimentoFormControl.invalid\">{{getErrorDataMessage()}}</mat-error>\r\n  </mat-form-field><br/><br/>\r\n\r\n  <mat-form-field>\r\n    <input matInput placeholder=\"Valor\" type=\"number\" name=\"valor\"\r\n           [formControl]=\"valorFormControl\"\r\n           [(ngModel)]=\"receita.valor\"\r\n           required>\r\n    <span matPrefix>R$&nbsp;</span>\r\n    <mat-error *ngIf=\"valorFormControl.invalid\">{{getErrorValorMessage()}}</mat-error>\r\n  </mat-form-field><br/><br/>\r\n\r\n<!--\r\n  <label>Registro Ativo:\r\n    <input type=\"radio\" name=\"ativo\" [(ngModel)]=\"pessoa.ativo\" [value]=\"true\">Sim\r\n    <input type=\"radio\" name=\"ativo\" [(ngModel)]=\"pessoa.ativo\" [value]=\"false\">Não<br>\r\n  </label><br/><br/>\r\n  -->\r\n  <button type=\"submit\" [disabled]=\"desabilitarSalvar()\">Salvar</button>\r\n\r\n</form>\r\n"
+module.exports = "<form (ngSubmit)=\"salvar()\">\r\n\r\n  <br/>\r\n  <h3>{{titulo}}</h3>\r\n\r\n  <mat-form-field>\r\n    <input matInput placeholder=\"Descrição\" size=\"30\" name=\"descricao\"\r\n           [formControl]=\"descricaoFormControl\"\r\n           [(ngModel)]=\"receita.descricao\"\r\n           required>\r\n    <mat-error *ngIf=\"descricaoFormControl.invalid\">{{getErrorDescricaoMessage()}}</mat-error>\r\n  </mat-form-field><br/><br/>\r\n\r\n\r\n  <mat-form-field>\r\n    <input matInput [matDatepicker]=\"myDatepicker\" placeholder=\"Vencimento\" name=\"vencimento\"\r\n           [formControl]=\"dataVencimentoFormControl\"\r\n           [(ngModel)]=\"receita.vencimento\"\r\n           required>\r\n    <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n    <mat-datepicker #myDatepicker></mat-datepicker>\r\n    <mat-error *ngIf=\"dataVencimentoFormControl.invalid\">{{getErrorDataMessage()}}</mat-error>\r\n  </mat-form-field><br/><br/>\r\n\r\n  <mat-form-field>\r\n    <input matInput placeholder=\"Valor\" type=\"number\" name=\"valor\"\r\n           [formControl]=\"valorFormControl\"\r\n           [(ngModel)]=\"receita.valor\"\r\n           required>\r\n    <span matPrefix>R$&nbsp;</span>\r\n    <mat-error *ngIf=\"valorFormControl.invalid\">{{getErrorValorMessage()}}</mat-error>\r\n  </mat-form-field><br/><br/>\r\n\r\n  <button type=\"submit\" [disabled]=\"desabilitarSalvar()\">Salvar</button>\r\n</form>\r\n"
 
 /***/ }),
 
@@ -347,7 +347,7 @@ var CadastroReceitaComponent = /** @class */ (function () {
         // variaveis dos compoenentes de tela
         this.descricaoFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]);
         this.dataVencimentoFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]);
-        this.valorFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(0)]);
+        this.valorFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]);
         this.campoObrigatorio = 'Campo obrigatório. Favor preencher!';
         this.valorminimo = 'Valor mínimo é 0!';
         this.semError = '';
@@ -371,9 +371,7 @@ var CadastroReceitaComponent = /** @class */ (function () {
         return this.dataVencimentoFormControl.hasError('required') ? this.campoObrigatorio : this.semError;
     };
     CadastroReceitaComponent.prototype.getErrorValorMessage = function () {
-        return this.valorFormControl.hasError('required') ? this.campoObrigatorio :
-            (this.valorFormControl.hasError('min') ? this.valorminimo :
-                this.semError);
+        return this.valorFormControl.hasError('required') ? this.campoObrigatorio : this.semError;
     };
     CadastroReceitaComponent.prototype.desabilitarSalvar = function () {
         return this.descricaoFormControl.invalid || this.dataVencimentoFormControl.invalid || this.valorFormControl.invalid;

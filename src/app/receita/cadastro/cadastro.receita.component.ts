@@ -13,7 +13,7 @@ export class CadastroReceitaComponent implements OnInit {
   // variaveis dos compoenentes de tela
   private descricaoFormControl: FormControl  = new FormControl('', [Validators.required]);
   private dataVencimentoFormControl: FormControl  = new FormControl('', [Validators.required]);
-  private valorFormControl: FormControl  = new FormControl('', [Validators.required, Validators.min(0)]);
+  private valorFormControl: FormControl  = new FormControl('', [Validators.required]);
 
   private receita: Receita;
   private titulo: string;
@@ -48,9 +48,7 @@ export class CadastroReceitaComponent implements OnInit {
   }
 
   getErrorValorMessage() {
-    return this.valorFormControl.hasError('required') ? this.campoObrigatorio :
-      (this.valorFormControl.hasError('min') ? this.valorminimo :
-      this.semError);
+    return this.valorFormControl.hasError('required') ? this.campoObrigatorio : this.semError;
   }
 
   desabilitarSalvar(): boolean {
