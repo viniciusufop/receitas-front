@@ -20,8 +20,10 @@
       <tr *ngFor="let receita of receitas; let i = index;">
         <td scope="row">{{ receita.descricao }}</td>
         <td scope="row">{{ receita.vencimento  | date: 'dd/MM/yyyy'}}</td>
-        <td scope="row">{{ receita.valor }}</td>
-        <td scope="row"><a (click)="excluir(receita.id, i);">Excluir</a></td>
+        <td scope="row" [ngClass]="{'azul': isReceita(receita.valor),'vermelho': !isReceita(receita.valor)}"> {{ receita.valor }}</td>
+        <td scope="row">
+          <button type="button" class="btn btn-danger" (click)="excluir(receita.id, i);">X</button>
+        </td>
       </tr>
       <tr>
         <td scope="row" colspan="6" style="text-align: right;">Total de Registros: {{ receitas.length }}</td>

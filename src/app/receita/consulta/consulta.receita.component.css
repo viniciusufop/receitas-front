@@ -19,9 +19,17 @@ th {
   color: white;
 }
 
+
+*/
 a{
   cursor: pointer;
   cursor: hand;
   text-decoration:underline;
 }
-*/
+td.vermelho {
+  color: #ff0000
+}
+
+td.azul {
+  color: #0000ff
+}

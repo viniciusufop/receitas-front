@@ -25,6 +25,10 @@ export class ConsultaComponent implements OnInit {
     this.receitaService.getReceitas().subscribe(res => this.receitas = res);
   }
 
+  isReceita(valor: number): boolean {
+    return valor >= 0;
+  }
+
   /**EXCLUI UM REGISTRO QUANDO CLICAMOS NA OPÇÃO EXCLUIR DE UMA
    * LINHA DA TABELA*/
   excluir(id: number, index: number): void {
