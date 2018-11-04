@@ -1,28 +1,35 @@
-<h3>{{titulo}}</h3>
+<div class="row">
+  <div class="col-md-12">
+    <h3>{{titulo}}</h3>
+  </div>
+</div>
 
-<table>
-  <thead>
-  <tr>
-    <th>Descrição</th>
-    <th>Vencimento</th>
-    <th>Valor</th>
-    <th>Excluir</th>
-  </tr>
-  </thead>
+<div class="row">
+  <div class="col-md-8">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">Descrição</th>
+        <th scope="col">Vencimento</th>
+        <th scope="col">Valor</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
 
-  <tbody>
-  <tr *ngFor="let receita of receitas; let i = index;">
-    <td>{{ receita.descricao }}</td>
-    <td>{{ receita.vencimento  | date: 'dd/MM/yyyy'}}</td>
-    <td>{{ receita.valor }}</td>
-    <!--
-    <td *ngIf='receita.ativo'>Sim</td>
-    <td *ngIf='!receita.ativo'>Não</td>
-    -->
-    <td><a (click)="excluir(receita.id, i);">Excluir</a></td>
-  </tr>
-  <tr>
-    <td colspan="6" style="text-align: right;">Total de Registros: {{ receitas.length }}</td>
-  </tr>
-  </tbody>
-</table>
+      <tbody>
+      <tr *ngFor="let receita of receitas; let i = index;">
+        <td scope="row">{{ receita.descricao }}</td>
+        <td scope="row">{{ receita.vencimento  | date: 'dd/MM/yyyy'}}</td>
+        <td scope="row">{{ receita.valor }}</td>
+        <td scope="row"><a (click)="excluir(receita.id, i);">Excluir</a></td>
+      </tr>
+      <tr>
+        <td scope="row" colspan="6" style="text-align: right;">Total de Registros: {{ receitas.length }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-4">
+    <h2>grafico</h2>
+  </div>
+</div>
