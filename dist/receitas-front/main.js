@@ -307,7 +307,7 @@ module.exports = "form{\r\n  position:fixed;\r\n  left:30%;\r\n  width:450px;\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form (ngSubmit)=\"salvar()\">\r\n\r\n  <br/>\r\n  <h3>{{titulo}}</h3>\r\n\r\n  <mat-form-field>\r\n    <input matInput placeholder=\"Descrição\" size=\"30\" name=\"descricao\"\r\n           [formControl]=\"descricaoFormControl\"\r\n           [(ngModel)]=\"descricao\"\r\n           required>\r\n  </mat-form-field><br/><br/>\r\n\r\n\r\n  <mat-form-field>\r\n    <input matInput [matDatepicker]=\"myDatepicker\" placeholder=\"Vencimento\"  name=\"vencimento\"\r\n           [formControl]=\"dataVencimentoFormControl\"\r\n           [(ngModel)]=\"dataVencimento\"\r\n           required>\r\n    <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n    <mat-datepicker #myDatepicker></mat-datepicker>\r\n  </mat-form-field><br/><br/>\r\n\r\n  <mat-form-field>\r\n    <input matInput placeholder=\"Valor\" type=\"number\" name=\"valor\"\r\n           [formControl]=\"valorFormControl\"\r\n           [(ngModel)]=\"valor\"\r\n           required>\r\n    <span matPrefix>R$&nbsp;</span>\r\n  </mat-form-field><br/><br/>\r\n\r\n<!--\r\n\r\n  <mat-form-field>\r\n    <input matInput placeholder=\"Descrição\" size=\"30\"\r\n          name=\"descricao\" [(ngModel)]=\"receita.descricao\" required>\r\n  </mat-form-field><br/><br/>\r\n\r\n\r\n  <mat-form-field>\r\n    <input matInput [matDatepicker]=\"myDatepicker\" placeholder=\"Vencimento\"\r\n           name=\"vencimento\" [(ngModel)]=\"receita.vencimento\" required>\r\n    <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n    <mat-datepicker #myDatepicker></mat-datepicker>\r\n  </mat-form-field><br/><br/>\r\n\r\n  <mat-form-field>\r\n    <input matInput placeholder=\"Valor\" type=\"number\" name=\"vencimento\" [(ngModel)]=\"receita.valor\" required>\r\n    <span matPrefix>R$&nbsp;</span>\r\n  </mat-form-field><br/><br/>\r\n  <label>Registro Ativo:\r\n    <input type=\"radio\" name=\"ativo\" [(ngModel)]=\"pessoa.ativo\" [value]=\"true\">Sim\r\n    <input type=\"radio\" name=\"ativo\" [(ngModel)]=\"pessoa.ativo\" [value]=\"false\">Não<br>\r\n  </label><br/><br/>\r\n-->\r\n  <button type=\"submit\">Salvar</button>\r\n</form>\r\n"
+module.exports = "<form (ngSubmit)=\"salvar()\">\r\n\r\n  <br/>\r\n  <h3>{{titulo}}</h3>\r\n\r\n  <mat-form-field>\r\n    <input matInput placeholder=\"Descrição\" size=\"30\" name=\"descricao\"\r\n           [formControl]=\"descricaoFormControl\"\r\n           [(ngModel)]=\"receita.descricao\"\r\n           required>\r\n    <mat-error *ngIf=\"descricaoFormControl.invalid\">{{getErrorDescricaoMessage()}}</mat-error>\r\n  </mat-form-field><br/><br/>\r\n\r\n\r\n  <mat-form-field>\r\n    <input matInput [matDatepicker]=\"myDatepicker\" placeholder=\"Vencimento\" name=\"vencimento\"\r\n           [formControl]=\"dataVencimentoFormControl\"\r\n           [(ngModel)]=\"receita.vencimento\"\r\n           required>\r\n    <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n    <mat-datepicker #myDatepicker></mat-datepicker>\r\n    <mat-error *ngIf=\"dataVencimentoFormControl.invalid\">{{getErrorDataMessage()}}</mat-error>\r\n  </mat-form-field><br/><br/>\r\n\r\n  <mat-form-field>\r\n    <input matInput placeholder=\"Valor\" type=\"number\" name=\"valor\"\r\n           [formControl]=\"valorFormControl\"\r\n           [(ngModel)]=\"receita.valor\"\r\n           required>\r\n    <span matPrefix>R$&nbsp;</span>\r\n    <mat-error *ngIf=\"valorFormControl.invalid\">{{getErrorValorMessage()}}</mat-error>\r\n  </mat-form-field><br/><br/>\r\n\r\n<!--\r\n  <label>Registro Ativo:\r\n    <input type=\"radio\" name=\"ativo\" [(ngModel)]=\"pessoa.ativo\" [value]=\"true\">Sim\r\n    <input type=\"radio\" name=\"ativo\" [(ngModel)]=\"pessoa.ativo\" [value]=\"false\">Não<br>\r\n  </label><br/><br/>\r\n  -->\r\n  <button type=\"submit\" [disabled]=\"desabilitarSalvar()\">Salvar</button>\r\n\r\n</form>\r\n"
 
 /***/ }),
 
@@ -322,10 +322,10 @@ module.exports = "<form (ngSubmit)=\"salvar()\">\r\n\r\n  <br/>\r\n  <h3>{{titul
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CadastroReceitaComponent", function() { return CadastroReceitaComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _services_receita__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/receita */ "./src/app/services/receita.ts");
-/* harmony import */ var _services_receita_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/receita.service */ "./src/app/services/receita.service.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _services_receita__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/receita */ "./src/app/services/receita.ts");
+/* harmony import */ var _services_receita_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/receita.service */ "./src/app/services/receita.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -341,37 +341,42 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var CadastroReceitaComponent = /** @class */ (function () {
-    function CadastroReceitaComponent(receitaService, router, activatedRoute) {
+    function CadastroReceitaComponent(receitaService, router) {
         this.receitaService = receitaService;
         this.router = router;
-        this.activatedRoute = activatedRoute;
         // variaveis dos compoenentes de tela
-        // = new FormControl('', [Validators.required, Validators.email]);
-        this.descricaoFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]);
-        this.dataVencimentoFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]);
-        this.valorFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]);
+        this.descricaoFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]);
+        this.dataVencimentoFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]);
+        this.valorFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(0)]);
+        this.campoObrigatorio = 'Campo obrigatório. Favor preencher!';
+        this.valorminimo = 'Valor mínimo é 0!';
+        this.semError = '';
     }
-    /*CARREGADO NA INICIALIZAÇÃO DO COMPONENTE */
     CadastroReceitaComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.activatedRoute.params.subscribe(function (parametro) {
-            _this.titulo = 'Novo Cadastro de Receita';
-        });
+        this.titulo = 'Novo Cadastro de Receita';
+        this.receita = new _services_receita__WEBPACK_IMPORTED_MODULE_1__["Receita"]();
     };
-    /*FUNÇÃO PARA SALVAR UM NOVO REGISTRO OU ALTERAÇÃO EM UM REGISTRO EXISTENTE */
     CadastroReceitaComponent.prototype.salvar = function () {
         var _this = this;
-        /*CHAMA O SERVIÇO PARA ADICIONAR UMA NOVA RECEITA */
-        var receita = new _services_receita__WEBPACK_IMPORTED_MODULE_2__["Receita"]();
-        receita.descricao = this.descricao;
-        receita.vencimento = this.dataVencimento;
-        receita.valor = this.valor;
-        this.receitaService.addReceita(receita).subscribe(function (response) {
+        this.receitaService.addReceita(this.receita).subscribe(function (response) {
             _this.router.navigate(['/consulta-receita']);
-            // TODO redirecionar para lista
         }, function (error) {
             alert(error);
         });
+    };
+    CadastroReceitaComponent.prototype.getErrorDescricaoMessage = function () {
+        return this.descricaoFormControl.hasError('required') ? this.campoObrigatorio : this.semError;
+    };
+    CadastroReceitaComponent.prototype.getErrorDataMessage = function () {
+        return this.dataVencimentoFormControl.hasError('required') ? this.campoObrigatorio : this.semError;
+    };
+    CadastroReceitaComponent.prototype.getErrorValorMessage = function () {
+        return this.valorFormControl.hasError('required') ? this.campoObrigatorio :
+            (this.valorFormControl.hasError('min') ? this.valorminimo :
+                this.semError);
+    };
+    CadastroReceitaComponent.prototype.desabilitarSalvar = function () {
+        return this.descricaoFormControl.invalid || this.dataVencimentoFormControl.invalid || this.valorFormControl.invalid;
     };
     CadastroReceitaComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -379,9 +384,8 @@ var CadastroReceitaComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./cadastro.receita.component.html */ "./src/app/receita/cadastro/cadastro.receita.component.html"),
             styles: [__webpack_require__(/*! ./cadastro.receita.component.css */ "./src/app/receita/cadastro/cadastro.receita.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_receita_service__WEBPACK_IMPORTED_MODULE_3__["ReceitaService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]])
+        __metadata("design:paramtypes", [_services_receita_service__WEBPACK_IMPORTED_MODULE_2__["ReceitaService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
     ], CadastroReceitaComponent);
     return CadastroReceitaComponent;
 }());
@@ -504,8 +508,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConfigService", function() { return ConfigService; });
 var ConfigService = /** @class */ (function () {
     function ConfigService() {
-        // this.urlService = 'https://receitas-back-vfs.herokuapp.com/api/v1';
-        this.urlService = 'http://localhost:8080/api/v1';
+        this.urlService = 'https://receitas-back-vfs.herokuapp.com/api/v1';
+        // this.urlService = 'http://localhost:8080/api/v1';
     }
     ConfigService.prototype.getUrlService = function () {
         return this.urlService;

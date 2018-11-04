@@ -6,51 +6,37 @@
   <mat-form-field>
     <input matInput placeholder="Descrição" size="30" name="descricao"
            [formControl]="descricaoFormControl"
-           [(ngModel)]="descricao"
+           [(ngModel)]="receita.descricao"
            required>
+    <mat-error *ngIf="descricaoFormControl.invalid">{{getErrorDescricaoMessage()}}</mat-error>
   </mat-form-field><br/><br/>
 
 
   <mat-form-field>
-    <input matInput [matDatepicker]="myDatepicker" placeholder="Vencimento"  name="vencimento"
+    <input matInput [matDatepicker]="myDatepicker" placeholder="Vencimento" name="vencimento"
            [formControl]="dataVencimentoFormControl"
-           [(ngModel)]="dataVencimento"
+           [(ngModel)]="receita.vencimento"
            required>
     <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
     <mat-datepicker #myDatepicker></mat-datepicker>
+    <mat-error *ngIf="dataVencimentoFormControl.invalid">{{getErrorDataMessage()}}</mat-error>
   </mat-form-field><br/><br/>
 
   <mat-form-field>
     <input matInput placeholder="Valor" type="number" name="valor"
            [formControl]="valorFormControl"
-           [(ngModel)]="valor"
+           [(ngModel)]="receita.valor"
            required>
     <span matPrefix>R$&nbsp;</span>
+    <mat-error *ngIf="valorFormControl.invalid">{{getErrorValorMessage()}}</mat-error>
   </mat-form-field><br/><br/>
 
 <!--
-
-  <mat-form-field>
-    <input matInput placeholder="Descrição" size="30"
-          name="descricao" [(ngModel)]="receita.descricao" required>
-  </mat-form-field><br/><br/>
-
-
-  <mat-form-field>
-    <input matInput [matDatepicker]="myDatepicker" placeholder="Vencimento"
-           name="vencimento" [(ngModel)]="receita.vencimento" required>
-    <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
-    <mat-datepicker #myDatepicker></mat-datepicker>
-  </mat-form-field><br/><br/>
-
-  <mat-form-field>
-    <input matInput placeholder="Valor" type="number" name="vencimento" [(ngModel)]="receita.valor" required>
-    <span matPrefix>R$&nbsp;</span>
-  </mat-form-field><br/><br/>
   <label>Registro Ativo:
     <input type="radio" name="ativo" [(ngModel)]="pessoa.ativo" [value]="true">Sim
     <input type="radio" name="ativo" [(ngModel)]="pessoa.ativo" [value]="false">Não<br>
   </label><br/><br/>
--->
-  <button type="submit">Salvar</button>
+  -->
+  <button type="submit" [disabled]="desabilitarSalvar()">Salvar</button>
+
 </form>

@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
 import {Receita} from '../../services/receita';
 import {ReceitaService} from '../../services/receita.service';
 import {FormControl, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-receita',
@@ -10,42 +10,51 @@ import {FormControl, Validators} from '@angular/forms';
   styleUrls: ['./cadastro.receita.component.css']
 })
 export class CadastroReceitaComponent implements OnInit {
-  titulo: string;
   // variaveis dos compoenentes de tela
-  // = new FormControl('', [Validators.required, Validators.email]);
-  descricaoFormControl: FormControl  = new FormControl('', [Validators.required]);
-  dataVencimentoFormControl: FormControl  = new FormControl('', [Validators.required]);
-  valorFormControl: FormControl  = new FormControl('', [Validators.required]);
+  private descricaoFormControl: FormControl  = new FormControl('', [Validators.required]);
+  private dataVencimentoFormControl: FormControl  = new FormControl('', [Validators.required]);
+  private valorFormControl: FormControl  = new FormControl('', [Validators.required, Validators.min(0)]);
 
-  descricao: string;
-  dataVencimento: Date;
-  valor: number;
+  private receita: Receita;
+  private titulo: string;
+
+  private campoObrigatorio = 'Campo obrigatório. Favor preencher!';
+  private valorminimo = 'Valor mínimo é 0!';
+  private semError = '';
 
   constructor(private receitaService: ReceitaService,
-              private router: Router,
-              private activatedRoute: ActivatedRoute) {
+              private router: Router) {
   }
 
-  /*CARREGADO NA INICIALIZAÇÃO DO COMPONENTE */
   ngOnInit() {
-      this.activatedRoute.params.subscribe(parametro => {
-        this.titulo = 'Novo Cadastro de Receita';
-    });
+    this.titulo = 'Novo Cadastro de Receita';
+    this.receita = new Receita();
   }
 
-  /*FUNÇÃO PARA SALVAR UM NOVO REGISTRO OU ALTERAÇÃO EM UM REGISTRO EXISTENTE */
   salvar(): void {
-    /*CHAMA O SERVIÇO PARA ADICIONAR UMA NOVA RECEITA */
-    const receita: Receita = new Receita();
-    receita.descricao = this.descricao;
-    receita.vencimento = this.dataVencimento;
-    receita.valor = this.valor;
-    this.receitaService.addReceita(receita).subscribe(response => {
+    this.receitaService.addReceita(this.receita).subscribe(response => {
       this.router.navigate(['/consulta-receita']);
-      // TODO redirecionar para lista
     }, (error) => {
         alert(error);
     });
+  }
+
+  getErrorDescricaoMessage(): String {
+    return this.descricaoFormControl.hasError('required') ? this.campoObrigatorio : this.semError;
+  }
+
+  getErrorDataMessage() {
+    return this.dataVencimentoFormControl.hasError('required') ? this.campoObrigatorio : this.semError;
+  }
+
+  getErrorValorMessage() {
+    return this.valorFormControl.hasError('required') ? this.campoObrigatorio :
+      (this.valorFormControl.hasError('min') ? this.valorminimo :
+      this.semError);
+  }
+
+  desabilitarSalvar(): boolean {
+    return this.descricaoFormControl.invalid || this.dataVencimentoFormControl.invalid || this.valorFormControl.invalid;
   }
 }
 
