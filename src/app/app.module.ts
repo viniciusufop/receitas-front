@@ -12,7 +12,7 @@ import {CadastroReceitaComponent} from './receita/cadastro/cadastro.receita.comp
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {routing} from '../app.routes';
 import {MaterialModule} from '../material.module';
-import {MAT_DATE_LOCALE} from '@angular/material';
+import {MAT_DATE_LOCALE, MatFormFieldModule, MatSelectModule} from '@angular/material';
 import {PieChartComponent} from './pie-chart/pie-chart.component';
 import {ChartsModule} from 'ng2-charts';
 
@@ -32,7 +32,9 @@ import {ChartsModule} from 'ng2-charts';
     routing,
     ReactiveFormsModule,
     MaterialModule,
-    ChartsModule
+    ChartsModule,
+    // MatFormFieldModule,
+    MatSelectModule,
   ],
   providers: [ConfigService, ReceitaService,
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}],

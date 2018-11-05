@@ -458,7 +458,9 @@ var AppModule = /** @class */ (function () {
                 _app_routes__WEBPACK_IMPORTED_MODULE_11__["routing"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_10__["ReactiveFormsModule"],
                 _material_module__WEBPACK_IMPORTED_MODULE_12__["MaterialModule"],
-                ng2_charts__WEBPACK_IMPORTED_MODULE_15__["ChartsModule"]
+                ng2_charts__WEBPACK_IMPORTED_MODULE_15__["ChartsModule"],
+                // MatFormFieldModule,
+                _angular_material__WEBPACK_IMPORTED_MODULE_13__["MatSelectModule"],
             ],
             providers: [_services_config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigService"], _services_receita_service__WEBPACK_IMPORTED_MODULE_5__["ReceitaService"],
                 { provide: _angular_material__WEBPACK_IMPORTED_MODULE_13__["MAT_DATE_LOCALE"], useValue: 'pt-BR' }],
@@ -688,7 +690,7 @@ module.exports = "form{\r\n  position:fixed;\r\n  left:30%;\r\n  width:450px;\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form (ngSubmit)=\"salvar()\">\r\n\r\n  <br/>\r\n  <h3>{{titulo}}</h3>\r\n\r\n  <mat-form-field>\r\n    <input matInput placeholder=\"Descrição\" size=\"30\" name=\"descricao\"\r\n           [formControl]=\"descricaoFormControl\"\r\n           [(ngModel)]=\"receita.descricao\"\r\n           required>\r\n    <mat-error *ngIf=\"descricaoFormControl.invalid\">{{getErrorDescricaoMessage()}}</mat-error>\r\n  </mat-form-field><br/><br/>\r\n\r\n\r\n  <mat-form-field>\r\n    <input matInput [matDatepicker]=\"myDatepicker\" placeholder=\"Vencimento\" name=\"vencimento\"\r\n           [formControl]=\"dataVencimentoFormControl\"\r\n           [(ngModel)]=\"receita.vencimento\"\r\n           required>\r\n    <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n    <mat-datepicker #myDatepicker></mat-datepicker>\r\n    <mat-error *ngIf=\"dataVencimentoFormControl.invalid\">{{getErrorDataMessage()}}</mat-error>\r\n  </mat-form-field><br/><br/>\r\n\r\n  <mat-form-field>\r\n    <input matInput placeholder=\"Valor\" type=\"number\" name=\"valor\"\r\n           [formControl]=\"valorFormControl\"\r\n           [(ngModel)]=\"receita.valor\"\r\n           required>\r\n    <span matPrefix>R$&nbsp;</span>\r\n    <mat-error *ngIf=\"valorFormControl.invalid\">{{getErrorValorMessage()}}</mat-error>\r\n  </mat-form-field><br/><br/>\r\n\r\n  <button type=\"submit\" [disabled]=\"desabilitarSalvar()\">Salvar</button>\r\n</form>\r\n"
+module.exports = "<form (ngSubmit)=\"salvar()\">\r\n\r\n  <br/>\r\n  <h3>{{titulo}}</h3>\r\n\r\n  <mat-form-field>\r\n    <input matInput placeholder=\"Descrição\" size=\"30\" name=\"descricao\"\r\n           [formControl]=\"descricaoFormControl\"\r\n           [(ngModel)]=\"receita.descricao\"\r\n           required>\r\n    <mat-error *ngIf=\"descricaoFormControl.invalid\">{{getErrorDescricaoMessage()}}</mat-error>\r\n  </mat-form-field><br/><br/>\r\n\r\n\r\n  <mat-form-field>\r\n    <input matInput [matDatepicker]=\"myDatepicker\" placeholder=\"Vencimento\" name=\"vencimento\"\r\n           [formControl]=\"dataVencimentoFormControl\"\r\n           [(ngModel)]=\"receita.vencimento\"\r\n           required>\r\n    <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n    <mat-datepicker #myDatepicker></mat-datepicker>\r\n    <mat-error *ngIf=\"dataVencimentoFormControl.invalid\">{{getErrorDataMessage()}}</mat-error>\r\n  </mat-form-field><br/><br/>\r\n\r\n  <mat-form-field>\r\n    <input matInput placeholder=\"Valor\" type=\"number\" name=\"valor\"\r\n           [formControl]=\"valorFormControl\"\r\n           [(ngModel)]=\"receita.valor\"\r\n           required>\r\n    <span matPrefix>R$&nbsp;</span>\r\n    <mat-error *ngIf=\"valorFormControl.invalid\">{{getErrorValorMessage()}}</mat-error>\r\n  </mat-form-field><br/><br/>\r\n\r\n  <mat-form-field>\r\n    <mat-select placeholder=\"Operação\" [formControl]=\"operacaoFormControl\" required>\r\n      <mat-option>--</mat-option>\r\n      <mat-option *ngFor=\"let operacao of operacoes\" [value]=\"operacao\">\r\n        {{operacao}}\r\n      </mat-option>\r\n    </mat-select>\r\n    <mat-error *ngIf=\"operacaoFormControl.invalid\">{{getErrorOperacaoMessage()}}</mat-error>\r\n  </mat-form-field><br/><br/>\r\n\r\n  <button type=\"submit\" class=\"btn btn-outline-primary\" [disabled]=\"desabilitarSalvar()\">Salvar</button>\r\n</form>\r\n"
 
 /***/ }),
 
@@ -728,10 +730,12 @@ var CadastroReceitaComponent = /** @class */ (function () {
         // variaveis dos compoenentes de tela
         this.descricaoFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]);
         this.dataVencimentoFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]);
-        this.valorFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]);
+        this.valorFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(0.01)]);
+        this.operacaoFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]);
         this.campoObrigatorio = 'Campo obrigatório. Favor preencher!';
-        this.valorminimo = 'Valor mínimo é 0!';
+        this.valorminimo = 'Valor deve ser maior que 0!';
         this.semError = '';
+        this.operacoes = ['Receita', 'Despesa'];
     }
     CadastroReceitaComponent.prototype.ngOnInit = function () {
         this.titulo = 'Novo Cadastro de Receita';
@@ -739,6 +743,9 @@ var CadastroReceitaComponent = /** @class */ (function () {
     };
     CadastroReceitaComponent.prototype.salvar = function () {
         var _this = this;
+        if (this.operacaoFormControl.value === 'Despesa') {
+            this.receita.valor = this.receita.valor * -1;
+        }
         this.receitaService.addReceita(this.receita).subscribe(function (response) {
             _this.router.navigate(['/consulta-receita']);
         }, function (error) {
@@ -752,10 +759,17 @@ var CadastroReceitaComponent = /** @class */ (function () {
         return this.dataVencimentoFormControl.hasError('required') ? this.campoObrigatorio : this.semError;
     };
     CadastroReceitaComponent.prototype.getErrorValorMessage = function () {
-        return this.valorFormControl.hasError('required') ? this.campoObrigatorio : this.semError;
+        return this.valorFormControl.hasError('required') ? this.campoObrigatorio :
+            this.valorFormControl.hasError('min') ? this.valorminimo : this.semError;
+    };
+    CadastroReceitaComponent.prototype.getErrorOperacaoMessage = function () {
+        return this.operacaoFormControl.hasError('required') ? this.campoObrigatorio : this.semError;
     };
     CadastroReceitaComponent.prototype.desabilitarSalvar = function () {
-        return this.descricaoFormControl.invalid || this.dataVencimentoFormControl.invalid || this.valorFormControl.invalid;
+        return this.descricaoFormControl.invalid
+            || this.dataVencimentoFormControl.invalid
+            || this.valorFormControl.invalid
+            || this.operacaoFormControl.invalid;
     };
     CadastroReceitaComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -791,7 +805,7 @@ module.exports = "/*\r\ntable {\r\n  border-collapse: collapse;\r\n  width: 100%
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-12\">\r\n    <h3>{{titulo}}</h3>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\">\r\n  <div class=\"col-md-8\">\r\n    <table class=\"table table-striped\">\r\n      <thead>\r\n      <tr>\r\n        <th scope=\"col\">Descrição</th>\r\n        <th scope=\"col\">Vencimento</th>\r\n        <th scope=\"col\">Valor</th>\r\n        <th scope=\"col\"></th>\r\n      </tr>\r\n      </thead>\r\n\r\n      <tbody>\r\n      <tr *ngFor=\"let receita of receitas; let i = index;\">\r\n        <td scope=\"row\">{{ receita.descricao }}</td>\r\n        <td scope=\"row\">{{ receita.vencimento  | date: 'dd/MM/yyyy'}}</td>\r\n        <td scope=\"row\" [ngClass]=\"{'azul': isReceita(receita.valor),'vermelho': !isReceita(receita.valor)}\"> {{ receita.valor }}</td>\r\n        <td scope=\"row\">\r\n          <button type=\"button\" class=\"btn btn-danger\" (click)=\"excluir(receita.id, i);\">X</button>\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <td scope=\"row\" colspan=\"6\" style=\"text-align: right;\">Total de Registros: {{ receitas.length }}</td>\r\n      </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n    <app-pie-chart [receitas]=\"receitas\"></app-pie-chart>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-12\">\r\n    <h3>{{titulo}}</h3>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\">\r\n  <div class=\"col-md-8\">\r\n    <table class=\"table table-striped\">\r\n      <thead>\r\n      <tr>\r\n        <th scope=\"col\">Descrição</th>\r\n        <th scope=\"col\">Vencimento</th>\r\n        <th scope=\"col\">Valor</th>\r\n        <th scope=\"col\"></th>\r\n      </tr>\r\n      </thead>\r\n\r\n      <tbody>\r\n      <tr *ngFor=\"let receita of receitas; let i = index;\">\r\n        <td scope=\"row\">{{ receita.descricao }}</td>\r\n        <td scope=\"row\">{{ receita.vencimento  | date: 'dd/MM/yyyy'}}</td>\r\n        <td scope=\"row\" [ngClass]=\"{'azul': isReceita(receita.valor),'vermelho': !isReceita(receita.valor)}\"> {{ receita.valor }}</td>\r\n        <td scope=\"row\">\r\n          <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"excluir(receita.id, i);\">X</button>\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <td scope=\"row\" colspan=\"6\" style=\"text-align: right;\">Total de Registros: {{ receitas.length }}</td>\r\n      </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n    <app-pie-chart [receitas]=\"receitas\"></app-pie-chart>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 

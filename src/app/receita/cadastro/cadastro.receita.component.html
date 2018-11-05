@@ -31,5 +31,15 @@
     <mat-error *ngIf="valorFormControl.invalid">{{getErrorValorMessage()}}</mat-error>
   </mat-form-field><br/><br/>
 
-  <button type="submit" [disabled]="desabilitarSalvar()">Salvar</button>
+  <mat-form-field>
+    <mat-select placeholder="Operação" [formControl]="operacaoFormControl" required>
+      <mat-option>--</mat-option>
+      <mat-option *ngFor="let operacao of operacoes" [value]="operacao">
+        {{operacao}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="operacaoFormControl.invalid">{{getErrorOperacaoMessage()}}</mat-error>
+  </mat-form-field><br/><br/>
+
+  <button type="submit" class="btn btn-outline-primary" [disabled]="desabilitarSalvar()">Salvar</button>
 </form>

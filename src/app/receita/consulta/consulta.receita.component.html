@@ -22,7 +22,7 @@
         <td scope="row">{{ receita.vencimento  | date: 'dd/MM/yyyy'}}</td>
         <td scope="row" [ngClass]="{'azul': isReceita(receita.valor),'vermelho': !isReceita(receita.valor)}"> {{ receita.valor }}</td>
         <td scope="row">
-          <button type="button" class="btn btn-danger" (click)="excluir(receita.id, i);">X</button>
+          <button type="button" class="btn btn-outline-danger" (click)="excluir(receita.id, i);">X</button>
         </td>
       </tr>
       <tr>

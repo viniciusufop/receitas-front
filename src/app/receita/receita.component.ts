@@ -5,5 +5,5 @@ import { Component} from '@angular/core';
   templateUrl: './home.component.html'
 })
 export class ReceitaComponent {
-  private mensagem:string = "Página Inicial.";
+  private mensagem = 'Página Inicial.';
 }
