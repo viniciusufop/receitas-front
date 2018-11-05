@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Receita} from '../../services/receita';
 import {ReceitaService} from '../../services/receita.service';
-import {Form, FormControl, Validators} from '@angular/forms';
+import {FormControl, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 
 @Component({
@@ -22,7 +22,6 @@ export class CadastroReceitaComponent implements OnInit {
   private valorminimo = 'Valor deve ser maior que 0!';
   private semError = '';
   private operacoes: string[] = ['Receita', 'Despesa'];
-  private operacao: string;
 
   constructor(private receitaService: ReceitaService,
               private router: Router) {
@@ -42,6 +41,12 @@ export class CadastroReceitaComponent implements OnInit {
     }, (error) => {
         alert(error);
     });
+  }
+
+  voltar(): void {
+    if (confirm('Deseja realmente voltar a tela de consulta?')) {
+      this.router.navigate(['/']);
+    }
   }
 
   getErrorDescricaoMessage(): String {

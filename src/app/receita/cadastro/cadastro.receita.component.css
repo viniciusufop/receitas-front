@@ -1,18 +1,22 @@
 form{
   background-color: rgba(230, 230, 230, 0.71);
-  border: 1px solid  rgba(106, 141, 173, 0.71);;
+  border: 1px solid  rgba(106, 141, 173, 0.71);
   border-radius: 25px;
 }
 
 h3{
-  background-color: #213E8D;
+  background-color: #007bff;
   color: white;
   text-align: center;
   vertical-align: middle;
-
-
+  margin: 0px 10px;
+  border-radius: 25px;
 }
 
 mat-form-field{
   margin-left: 8px;
+}
+
+button {
+  margin: 10px;
 }

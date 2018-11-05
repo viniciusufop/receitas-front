@@ -40,7 +40,9 @@
         </mat-select>
         <mat-error *ngIf="operacaoFormControl.invalid">{{getErrorOperacaoMessage()}}</mat-error>
       </mat-form-field><br/><br/>
-      <button type="submit" class="btn btn-outline-primary" [disabled]="desabilitarSalvar()">Salvar</button>
+
+      <button type="submit" class="btn btn-outline-success" [disabled]="desabilitarSalvar()">Salvar</button>
+      <button type="button" class="btn btn-outline-danger" (click)="voltar();">Voltar</button>
     </form>
   </div>
   <div class="col-md-3">

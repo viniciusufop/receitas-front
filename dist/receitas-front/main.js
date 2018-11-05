@@ -335,7 +335,7 @@ var routing = _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forRo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */"
+module.exports = "nav {\r\n  color: white;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0NBQ2QiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIm5hdiB7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -346,7 +346,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container content\">\r\n  <app-menu></app-menu>\r\n  <div>\r\n    <br/><br/>\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"container content\">\r\n  <nav  class=\"navbar navbar-dark bg-primary\">\r\n    <h1>Controle de Contas</h1>\r\n  </nav>\r\n  <br/><br/>\r\n  <router-outlet></router-outlet>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -402,23 +402,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _services_config_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./services/config.service */ "./src/app/services/config.service.ts");
 /* harmony import */ var _services_receita_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/receita.service */ "./src/app/services/receita.service.ts");
-/* harmony import */ var _menu_menu_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./menu/menu.component */ "./src/app/menu/menu.component.ts");
-/* harmony import */ var _receita_consulta_consulta_receita_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./receita/consulta/consulta.receita.component */ "./src/app/receita/consulta/consulta.receita.component.ts");
-/* harmony import */ var _receita_cadastro_cadastro_receita_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./receita/cadastro/cadastro.receita.component */ "./src/app/receita/cadastro/cadastro.receita.component.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _app_routes__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../app.routes */ "./src/app.routes.ts");
-/* harmony import */ var _material_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../material.module */ "./src/material.module.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _pie_chart_pie_chart_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pie-chart/pie-chart.component */ "./src/app/pie-chart/pie-chart.component.ts");
-/* harmony import */ var ng2_charts__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ng2-charts */ "./node_modules/ng2-charts/index.js");
-/* harmony import */ var ng2_charts__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(ng2_charts__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _receita_consulta_consulta_receita_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./receita/consulta/consulta.receita.component */ "./src/app/receita/consulta/consulta.receita.component.ts");
+/* harmony import */ var _receita_cadastro_cadastro_receita_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./receita/cadastro/cadastro.receita.component */ "./src/app/receita/cadastro/cadastro.receita.component.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _app_routes__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../app.routes */ "./src/app.routes.ts");
+/* harmony import */ var _material_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../material.module */ "./src/material.module.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _pie_chart_pie_chart_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pie-chart/pie-chart.component */ "./src/app/pie-chart/pie-chart.component.ts");
+/* harmony import */ var ng2_charts__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ng2-charts */ "./node_modules/ng2-charts/index.js");
+/* harmony import */ var ng2_charts__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(ng2_charts__WEBPACK_IMPORTED_MODULE_13__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -440,85 +438,26 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
-                _menu_menu_component__WEBPACK_IMPORTED_MODULE_6__["MenuComponent"],
-                _receita_consulta_consulta_receita_component__WEBPACK_IMPORTED_MODULE_7__["ConsultaComponent"],
-                _receita_cadastro_cadastro_receita_component__WEBPACK_IMPORTED_MODULE_8__["CadastroReceitaComponent"],
-                _pie_chart_pie_chart_component__WEBPACK_IMPORTED_MODULE_13__["PieChartComponent"]
+                _receita_consulta_consulta_receita_component__WEBPACK_IMPORTED_MODULE_6__["ConsultaComponent"],
+                _receita_cadastro_cadastro_receita_component__WEBPACK_IMPORTED_MODULE_7__["CadastroReceitaComponent"],
+                _pie_chart_pie_chart_component__WEBPACK_IMPORTED_MODULE_12__["PieChartComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"],
-                _app_routes__WEBPACK_IMPORTED_MODULE_10__["routing"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"],
-                _material_module__WEBPACK_IMPORTED_MODULE_11__["MaterialModule"],
-                ng2_charts__WEBPACK_IMPORTED_MODULE_14__["ChartsModule"],
-                // MatFormFieldModule,
-                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatSelectModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"],
+                _app_routes__WEBPACK_IMPORTED_MODULE_9__["routing"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"],
+                _material_module__WEBPACK_IMPORTED_MODULE_10__["MaterialModule"],
+                ng2_charts__WEBPACK_IMPORTED_MODULE_13__["ChartsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatSelectModule"],
             ],
             providers: [_services_config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigService"], _services_receita_service__WEBPACK_IMPORTED_MODULE_5__["ReceitaService"],
-                { provide: _angular_material__WEBPACK_IMPORTED_MODULE_12__["MAT_DATE_LOCALE"], useValue: 'pt-BR' }],
+                { provide: _angular_material__WEBPACK_IMPORTED_MODULE_11__["MAT_DATE_LOCALE"], useValue: 'pt-BR' }],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/menu/menu.component.css":
-/*!*****************************************!*\
-  !*** ./src/app/menu/menu.component.css ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "ul {\r\n  list-style-type: none;\r\n  margin: 0;\r\n  padding: 0;\r\n  overflow: hidden;\r\n  background-color: #213E8D;\r\n}\r\n\r\nli {\r\n  float: left;\r\n}\r\n\r\nli a {\r\n  display: block;\r\n  color: white;\r\n  text-align: center;\r\n  padding: 14px 16px;\r\n  text-decoration: none;\r\n}\r\n\r\nli a:hover {\r\n  background-color: rgba(106, 141, 173, 0.71);\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVudS9tZW51LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxzQkFBc0I7RUFDdEIsVUFBVTtFQUNWLFdBQVc7RUFDWCxpQkFBaUI7RUFDakIsMEJBQTBCO0NBQzNCOztBQUVEO0VBQ0UsWUFBWTtDQUNiOztBQUVEO0VBQ0UsZUFBZTtFQUNmLGFBQWE7RUFDYixtQkFBbUI7RUFDbkIsbUJBQW1CO0VBQ25CLHNCQUFzQjtDQUN2Qjs7QUFFRDtFQUNFLDRDQUE0QztDQUM3QyIsImZpbGUiOiJzcmMvYXBwL21lbnUvbWVudS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsidWwge1xyXG4gIGxpc3Qtc3R5bGUtdHlwZTogbm9uZTtcclxuICBtYXJnaW46IDA7XHJcbiAgcGFkZGluZzogMDtcclxuICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICMyMTNFOEQ7XHJcbn1cclxuXHJcbmxpIHtcclxuICBmbG9hdDogbGVmdDtcclxufVxyXG5cclxubGkgYSB7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBwYWRkaW5nOiAxNHB4IDE2cHg7XHJcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG59XHJcblxyXG5saSBhOmhvdmVyIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDEwNiwgMTQxLCAxNzMsIDAuNzEpO1xyXG59XHJcbiJdfQ== */"
-
-/***/ }),
-
-/***/ "./src/app/menu/menu.component.html":
-/*!******************************************!*\
-  !*** ./src/app/menu/menu.component.html ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ul>\r\n  <li><a [routerLink]=\"['/home']\">Home</a></li>\r\n  <li><a [routerLink]=\"['/cadastro-receita']\">Cadastro</a></li>\r\n  <li><a [routerLink]=\"['/consulta-receita']\">Consulta</a></li>\r\n</ul>\r\n"
-
-/***/ }),
-
-/***/ "./src/app/menu/menu.component.ts":
-/*!****************************************!*\
-  !*** ./src/app/menu/menu.component.ts ***!
-  \****************************************/
-/*! exports provided: MenuComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuComponent", function() { return MenuComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var MenuComponent = /** @class */ (function () {
-    function MenuComponent() {
-    }
-    MenuComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-menu',
-            template: __webpack_require__(/*! ./menu.component.html */ "./src/app/menu/menu.component.html"),
-            styles: [__webpack_require__(/*! ./menu.component.css */ "./src/app/menu/menu.component.css")]
-        })
-    ], MenuComponent);
-    return MenuComponent;
 }());
 
 
@@ -627,7 +566,7 @@ var PieChartComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "form{\r\n  background-color: rgba(230, 230, 230, 0.71);\r\n  border: 1px solid  rgba(106, 141, 173, 0.71);;\r\n  border-radius: 25px;\r\n}\r\n\r\nh3{\r\n  background-color: #213E8D;\r\n  color: white;\r\n  text-align: center;\r\n  vertical-align: middle;\r\n\r\n\r\n}\r\n\r\nmat-form-field{\r\n  margin-left: 8px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVjZWl0YS9jYWRhc3Ryby9jYWRhc3Ryby5yZWNlaXRhLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSw0Q0FBNEM7RUFDNUMsNkNBQTZDO0VBQzdDLG9CQUFvQjtDQUNyQjs7QUFFRDtFQUNFLDBCQUEwQjtFQUMxQixhQUFhO0VBQ2IsbUJBQW1CO0VBQ25CLHVCQUF1Qjs7O0NBR3hCOztBQUVEO0VBQ0UsaUJBQWlCO0NBQ2xCIiwiZmlsZSI6InNyYy9hcHAvcmVjZWl0YS9jYWRhc3Ryby9jYWRhc3Ryby5yZWNlaXRhLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJmb3Jte1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjMwLCAyMzAsIDIzMCwgMC43MSk7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgIHJnYmEoMTA2LCAxNDEsIDE3MywgMC43MSk7O1xyXG4gIGJvcmRlci1yYWRpdXM6IDI1cHg7XHJcbn1cclxuXHJcbmgze1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICMyMTNFOEQ7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xyXG5cclxuXHJcbn1cclxuXHJcbm1hdC1mb3JtLWZpZWxke1xyXG4gIG1hcmdpbi1sZWZ0OiA4cHg7XHJcbn1cclxuIl19 */"
+module.exports = "form{\r\n  background-color: rgba(230, 230, 230, 0.71);\r\n  border: 1px solid  rgba(106, 141, 173, 0.71);\r\n  border-radius: 25px;\r\n}\r\n\r\nh3{\r\n  background-color: #007bff;\r\n  color: white;\r\n  text-align: center;\r\n  vertical-align: middle;\r\n  margin: 0px 10px;\r\n  border-radius: 25px;\r\n}\r\n\r\nmat-form-field{\r\n  margin-left: 8px;\r\n}\r\n\r\nbutton {\r\n  margin: 10px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVjZWl0YS9jYWRhc3Ryby9jYWRhc3Ryby5yZWNlaXRhLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSw0Q0FBNEM7RUFDNUMsNkNBQTZDO0VBQzdDLG9CQUFvQjtDQUNyQjs7QUFFRDtFQUNFLDBCQUEwQjtFQUMxQixhQUFhO0VBQ2IsbUJBQW1CO0VBQ25CLHVCQUF1QjtFQUN2QixpQkFBaUI7RUFDakIsb0JBQW9CO0NBQ3JCOztBQUVEO0VBQ0UsaUJBQWlCO0NBQ2xCOztBQUVEO0VBQ0UsYUFBYTtDQUNkIiwiZmlsZSI6InNyYy9hcHAvcmVjZWl0YS9jYWRhc3Ryby9jYWRhc3Ryby5yZWNlaXRhLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJmb3Jte1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjMwLCAyMzAsIDIzMCwgMC43MSk7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgIHJnYmEoMTA2LCAxNDEsIDE3MywgMC43MSk7XHJcbiAgYm9yZGVyLXJhZGl1czogMjVweDtcclxufVxyXG5cclxuaDN7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzAwN2JmZjtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XHJcbiAgbWFyZ2luOiAwcHggMTBweDtcclxuICBib3JkZXItcmFkaXVzOiAyNXB4O1xyXG59XHJcblxyXG5tYXQtZm9ybS1maWVsZHtcclxuICBtYXJnaW4tbGVmdDogOHB4O1xyXG59XHJcblxyXG5idXR0b24ge1xyXG4gIG1hcmdpbjogMTBweDtcclxufVxyXG4iXX0= */"
 
 /***/ }),
 
@@ -638,7 +577,7 @@ module.exports = "form{\r\n  background-color: rgba(230, 230, 230, 0.71);\r\n  b
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-3\">\r\n  </div>\r\n  <div class=\"col-md-6 text-center\">\r\n    <form (ngSubmit)=\"salvar()\">\r\n      <br/>\r\n      <h3>{{titulo}}</h3>\r\n      <mat-form-field>\r\n        <input matInput placeholder=\"Descrição\" size=\"30\" name=\"descricao\"\r\n               [formControl]=\"descricaoFormControl\"\r\n               [(ngModel)]=\"receita.descricao\"\r\n               required>\r\n        <mat-error *ngIf=\"descricaoFormControl.invalid\">{{getErrorDescricaoMessage()}}</mat-error>\r\n      </mat-form-field><br/><br/>\r\n      <mat-form-field>\r\n        <input matInput [matDatepicker]=\"myDatepicker\" placeholder=\"Vencimento\" name=\"vencimento\"\r\n               [formControl]=\"dataVencimentoFormControl\"\r\n               [(ngModel)]=\"receita.vencimento\"\r\n               required>\r\n        <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n        <mat-datepicker #myDatepicker></mat-datepicker>\r\n        <mat-error *ngIf=\"dataVencimentoFormControl.invalid\">{{getErrorDataMessage()}}</mat-error>\r\n      </mat-form-field><br/><br/>\r\n\r\n      <mat-form-field>\r\n        <input matInput placeholder=\"Valor\" type=\"number\" name=\"valor\"\r\n               [formControl]=\"valorFormControl\"\r\n               [(ngModel)]=\"receita.valor\"\r\n               required>\r\n        <span matPrefix>R$&nbsp;</span>\r\n        <mat-error *ngIf=\"valorFormControl.invalid\">{{getErrorValorMessage()}}</mat-error>\r\n      </mat-form-field><br/><br/>\r\n\r\n      <mat-form-field>\r\n        <mat-select placeholder=\"Operação\" [formControl]=\"operacaoFormControl\" required>\r\n          <mat-option>--</mat-option>\r\n          <mat-option *ngFor=\"let operacao of operacoes\" [value]=\"operacao\">\r\n            {{operacao}}\r\n          </mat-option>\r\n        </mat-select>\r\n        <mat-error *ngIf=\"operacaoFormControl.invalid\">{{getErrorOperacaoMessage()}}</mat-error>\r\n      </mat-form-field><br/><br/>\r\n      <button type=\"submit\" class=\"btn btn-outline-primary\" [disabled]=\"desabilitarSalvar()\">Salvar</button>\r\n    </form>\r\n  </div>\r\n  <div class=\"col-md-3\">\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-3\">\r\n  </div>\r\n  <div class=\"col-md-6 text-center\">\r\n    <form (ngSubmit)=\"salvar()\">\r\n      <br/>\r\n      <h3>{{titulo}}</h3>\r\n      <mat-form-field>\r\n        <input matInput placeholder=\"Descrição\" size=\"30\" name=\"descricao\"\r\n               [formControl]=\"descricaoFormControl\"\r\n               [(ngModel)]=\"receita.descricao\"\r\n               required>\r\n        <mat-error *ngIf=\"descricaoFormControl.invalid\">{{getErrorDescricaoMessage()}}</mat-error>\r\n      </mat-form-field><br/><br/>\r\n      <mat-form-field>\r\n        <input matInput [matDatepicker]=\"myDatepicker\" placeholder=\"Vencimento\" name=\"vencimento\"\r\n               [formControl]=\"dataVencimentoFormControl\"\r\n               [(ngModel)]=\"receita.vencimento\"\r\n               required>\r\n        <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n        <mat-datepicker #myDatepicker></mat-datepicker>\r\n        <mat-error *ngIf=\"dataVencimentoFormControl.invalid\">{{getErrorDataMessage()}}</mat-error>\r\n      </mat-form-field><br/><br/>\r\n\r\n      <mat-form-field>\r\n        <input matInput placeholder=\"Valor\" type=\"number\" name=\"valor\"\r\n               [formControl]=\"valorFormControl\"\r\n               [(ngModel)]=\"receita.valor\"\r\n               required>\r\n        <span matPrefix>R$&nbsp;</span>\r\n        <mat-error *ngIf=\"valorFormControl.invalid\">{{getErrorValorMessage()}}</mat-error>\r\n      </mat-form-field><br/><br/>\r\n\r\n      <mat-form-field>\r\n        <mat-select placeholder=\"Operação\" [formControl]=\"operacaoFormControl\" required>\r\n          <mat-option>--</mat-option>\r\n          <mat-option *ngFor=\"let operacao of operacoes\" [value]=\"operacao\">\r\n            {{operacao}}\r\n          </mat-option>\r\n        </mat-select>\r\n        <mat-error *ngIf=\"operacaoFormControl.invalid\">{{getErrorOperacaoMessage()}}</mat-error>\r\n      </mat-form-field><br/><br/>\r\n\r\n      <button type=\"submit\" class=\"btn btn-outline-success\" [disabled]=\"desabilitarSalvar()\">Salvar</button>\r\n      <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"voltar();\">Voltar</button>\r\n    </form>\r\n  </div>\r\n  <div class=\"col-md-3\">\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -700,6 +639,11 @@ var CadastroReceitaComponent = /** @class */ (function () {
             alert(error);
         });
     };
+    CadastroReceitaComponent.prototype.voltar = function () {
+        if (confirm('Deseja realmente voltar a tela de consulta?')) {
+            this.router.navigate(['/']);
+        }
+    };
     CadastroReceitaComponent.prototype.getErrorDescricaoMessage = function () {
         return this.descricaoFormControl.hasError('required') ? this.campoObrigatorio : this.semError;
     };
@@ -753,7 +697,7 @@ module.exports = "a{\r\n  cursor: pointer;\r\n  cursor: hand;\r\n  text-decorati
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-12\">\r\n    <h3>{{titulo}}</h3>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\">\r\n  <div class=\"col-md-8\">\r\n    <table class=\"table table-striped\">\r\n      <thead>\r\n      <tr>\r\n        <th scope=\"col\">Descrição</th>\r\n        <th scope=\"col\">Vencimento</th>\r\n        <th scope=\"col\">Valor</th>\r\n        <th scope=\"col\"></th>\r\n      </tr>\r\n      </thead>\r\n\r\n      <tbody>\r\n      <tr *ngFor=\"let receita of receitas; let i = index;\">\r\n        <td scope=\"row\">{{ receita.descricao }}</td>\r\n        <td scope=\"row\">{{ receita.vencimento  | date: 'dd/MM/yyyy'}}</td>\r\n        <td scope=\"row\" [ngClass]=\"{'azul': isReceita(receita.valor),'vermelho': !isReceita(receita.valor)}\"> {{formatValue(receita.valor)}}</td>\r\n        <td scope=\"row\">\r\n          <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"excluir(receita.id, i);\">X</button>\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <td scope=\"row\" colspan=\"6\" style=\"text-align: right;\">Total de Registros: {{ receitas.length }}</td>\r\n      </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n    <app-pie-chart [receitas]=\"receitas\"></app-pie-chart>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-12\">\r\n    <h3>{{titulo}}</h3>\r\n  </div>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-3\">\r\n    <button type=\"button\" class=\"btn btn-outline-primary\" (click)=\"incluir();\">Incluir</button>\r\n  </div>\r\n</div>\r\n<br/>\r\n<div class=\"row\">\r\n  <div class=\"col-md-8\">\r\n    <table class=\"table table-striped\">\r\n      <thead>\r\n      <tr>\r\n        <th scope=\"col\">Descrição</th>\r\n        <th scope=\"col\">Vencimento</th>\r\n        <th scope=\"col\">Valor</th>\r\n        <th scope=\"col\"></th>\r\n      </tr>\r\n      </thead>\r\n\r\n      <tbody>\r\n      <tr *ngFor=\"let receita of receitas; let i = index;\">\r\n        <td scope=\"row\">{{ receita.descricao }}</td>\r\n        <td scope=\"row\">{{ receita.vencimento  | date: 'dd/MM/yyyy'}}</td>\r\n        <td scope=\"row\" [ngClass]=\"{'azul': isReceita(receita.valor),'vermelho': !isReceita(receita.valor)}\"> {{formatValue(receita.valor)}}</td>\r\n        <td scope=\"row\">\r\n          <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"excluir(receita.id, i);\">X</button>\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <td scope=\"row\" colspan=\"6\" style=\"text-align: right;\">Total de Registros: {{ receitas.length }}</td>\r\n      </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n    <app-pie-chart [receitas]=\"receitas\"></app-pie-chart>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -769,6 +713,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConsultaComponent", function() { return ConsultaComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_receita_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/receita.service */ "./src/app/services/receita.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -780,9 +725,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var ConsultaComponent = /** @class */ (function () {
-    function ConsultaComponent(receitaService) {
+    function ConsultaComponent(receitaService, router) {
         this.receitaService = receitaService;
+        this.router = router;
         this.receitas = new Array();
     }
     ConsultaComponent.prototype.ngOnInit = function () {
@@ -803,8 +750,9 @@ var ConsultaComponent = /** @class */ (function () {
         }
         return negativo + 'R$' + value.toFixed(2).toString();
     };
-    /**EXCLUI UM REGISTRO QUANDO CLICAMOS NA OPÇÃO EXCLUIR DE UMA
-     * LINHA DA TABELA*/
+    ConsultaComponent.prototype.incluir = function () {
+        this.router.navigate(['/cadastro-receita']);
+    };
     ConsultaComponent.prototype.excluir = function (id, index) {
         var _this = this;
         if (confirm('Deseja realmente excluir esse registro?')) {
@@ -835,7 +783,8 @@ var ConsultaComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./consulta.receita.component.html */ "./src/app/receita/consulta/consulta.receita.component.html"),
             styles: [__webpack_require__(/*! ./consulta.receita.component.css */ "./src/app/receita/consulta/consulta.receita.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_receita_service__WEBPACK_IMPORTED_MODULE_1__["ReceitaService"]])
+        __metadata("design:paramtypes", [_services_receita_service__WEBPACK_IMPORTED_MODULE_1__["ReceitaService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], ConsultaComponent);
     return ConsultaComponent;
 }());

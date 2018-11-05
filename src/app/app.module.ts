@@ -5,20 +5,18 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppComponent} from './app.component';
 import {ConfigService} from './services/config.service';
 import {ReceitaService} from './services/receita.service';
-import {MenuComponent} from './menu/menu.component';
 import {ConsultaComponent} from './receita/consulta/consulta.receita.component';
 import {CadastroReceitaComponent} from './receita/cadastro/cadastro.receita.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {routing} from '../app.routes';
 import {MaterialModule} from '../material.module';
-import {MAT_DATE_LOCALE, MatFormFieldModule, MatSelectModule} from '@angular/material';
+import {MAT_DATE_LOCALE, MatSelectModule} from '@angular/material';
 import {PieChartComponent} from './pie-chart/pie-chart.component';
 import {ChartsModule} from 'ng2-charts';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
     ConsultaComponent,
     CadastroReceitaComponent,
     PieChartComponent
@@ -31,7 +29,6 @@ import {ChartsModule} from 'ng2-charts';
     ReactiveFormsModule,
     MaterialModule,
     ChartsModule,
-    // MatFormFieldModule,
     MatSelectModule,
   ],
   providers: [ConfigService, ReceitaService,

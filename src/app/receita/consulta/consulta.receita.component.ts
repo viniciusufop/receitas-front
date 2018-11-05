@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Receita} from '../../services/receita';
 import {ReceitaService} from '../../services/receita.service';
 import {Response} from '../../services/response';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-consulta-receita',
@@ -12,7 +13,8 @@ export class ConsultaComponent implements OnInit {
 
   private receitas: Receita[] = new Array();
   private titulo: string;
-  constructor(private receitaService: ReceitaService) {
+  constructor(private receitaService: ReceitaService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -35,8 +37,10 @@ export class ConsultaComponent implements OnInit {
     return negativo + 'R$' + value.toFixed(2).toString();
   }
 
-  /**EXCLUI UM REGISTRO QUANDO CLICAMOS NA OPÇÃO EXCLUIR DE UMA
-   * LINHA DA TABELA*/
+  incluir(): void {
+    this.router.navigate(['/cadastro-receita']);
+  }
+
   excluir(id: number, index: number): void {
     if (confirm('Deseja realmente excluir esse registro?')) {
       /*CHAMA O SERVIÇO PARA REALIZAR A EXCLUSÃO */
