@@ -29,7 +29,7 @@ export class CadastroReceitaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.titulo = 'Novo Cadastro de Receita';
+    this.titulo = 'Novo Cadastro de Operação';
     this.receita = new Receita();
   }
 

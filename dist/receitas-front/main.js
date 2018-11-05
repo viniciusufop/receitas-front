@@ -738,7 +738,7 @@ var CadastroReceitaComponent = /** @class */ (function () {
         this.operacoes = ['Receita', 'Despesa'];
     }
     CadastroReceitaComponent.prototype.ngOnInit = function () {
-        this.titulo = 'Novo Cadastro de Receita';
+        this.titulo = 'Novo Cadastro de Operação';
         this.receita = new _services_receita__WEBPACK_IMPORTED_MODULE_1__["Receita"]();
     };
     CadastroReceitaComponent.prototype.salvar = function () {
@@ -805,7 +805,7 @@ module.exports = "a{\r\n  cursor: pointer;\r\n  cursor: hand;\r\n  text-decorati
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-12\">\r\n    <h3>{{titulo}}</h3>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\">\r\n  <div class=\"col-md-8\">\r\n    <table class=\"table table-striped\">\r\n      <thead>\r\n      <tr>\r\n        <th scope=\"col\">Descrição</th>\r\n        <th scope=\"col\">Vencimento</th>\r\n        <th scope=\"col\">Valor</th>\r\n        <th scope=\"col\"></th>\r\n      </tr>\r\n      </thead>\r\n\r\n      <tbody>\r\n      <tr *ngFor=\"let receita of receitas; let i = index;\">\r\n        <td scope=\"row\">{{ receita.descricao }}</td>\r\n        <td scope=\"row\">{{ receita.vencimento  | date: 'dd/MM/yyyy'}}</td>\r\n        <td scope=\"row\" [ngClass]=\"{'azul': isReceita(receita.valor),'vermelho': !isReceita(receita.valor)}\"> {{ receita.valor }}</td>\r\n        <td scope=\"row\">\r\n          <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"excluir(receita.id, i);\">X</button>\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <td scope=\"row\" colspan=\"6\" style=\"text-align: right;\">Total de Registros: {{ receitas.length }}</td>\r\n      </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n    <app-pie-chart [receitas]=\"receitas\"></app-pie-chart>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-12\">\r\n    <h3>{{titulo}}</h3>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\">\r\n  <div class=\"col-md-8\">\r\n    <table class=\"table table-striped\">\r\n      <thead>\r\n      <tr>\r\n        <th scope=\"col\">Descrição</th>\r\n        <th scope=\"col\">Vencimento</th>\r\n        <th scope=\"col\">Valor</th>\r\n        <th scope=\"col\"></th>\r\n      </tr>\r\n      </thead>\r\n\r\n      <tbody>\r\n      <tr *ngFor=\"let receita of receitas; let i = index;\">\r\n        <td scope=\"row\">{{ receita.descricao }}</td>\r\n        <td scope=\"row\">{{ receita.vencimento  | date: 'dd/MM/yyyy'}}</td>\r\n        <td scope=\"row\" [ngClass]=\"{'azul': isReceita(receita.valor),'vermelho': !isReceita(receita.valor)}\"> {{formatValue(receita.valor)}}</td>\r\n        <td scope=\"row\">\r\n          <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"excluir(receita.id, i);\">X</button>\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <td scope=\"row\" colspan=\"6\" style=\"text-align: right;\">Total de Registros: {{ receitas.length }}</td>\r\n      </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n    <app-pie-chart [receitas]=\"receitas\"></app-pie-chart>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -840,12 +840,20 @@ var ConsultaComponent = /** @class */ (function () {
     ConsultaComponent.prototype.ngOnInit = function () {
         var _this = this;
         /*SETA O TÍTULO */
-        this.titulo = 'Receitas Cadastradas';
+        this.titulo = 'Receitas vs Despesas';
         /*CHAMA O SERVIÇO E RETORNA TODAS AS PESSOAS CADASTRADAS */
         this.receitaService.getReceitas().subscribe(function (res) { return _this.receitas = res; });
     };
     ConsultaComponent.prototype.isReceita = function (valor) {
         return valor >= 0;
+    };
+    ConsultaComponent.prototype.formatValue = function (value) {
+        var negativo = '';
+        if (value < 0) {
+            value = value * -1;
+            negativo = '-';
+        }
+        return negativo + 'R$' + value.toFixed(2).toString();
     };
     /**EXCLUI UM REGISTRO QUANDO CLICAMOS NA OPÇÃO EXCLUIR DE UMA
      * LINHA DA TABELA*/

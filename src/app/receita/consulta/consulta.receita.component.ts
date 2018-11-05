@@ -17,13 +17,22 @@ export class ConsultaComponent implements OnInit {
 
   ngOnInit() {
     /*SETA O TÍTULO */
-    this.titulo = 'Receitas Cadastradas';
+    this.titulo = 'Receitas vs Despesas';
     /*CHAMA O SERVIÇO E RETORNA TODAS AS PESSOAS CADASTRADAS */
     this.receitaService.getReceitas().subscribe(res => this.receitas = res);
   }
 
   isReceita(valor: number): boolean {
     return valor >= 0;
+  }
+
+  formatValue(value: number): string {
+    let negativo = '';
+    if (value < 0) {
+      value = value * -1;
+      negativo = '-';
+    }
+    return negativo + 'R$' + value.toFixed(2).toString();
   }
 
   /**EXCLUI UM REGISTRO QUANDO CLICAMOS NA OPÇÃO EXCLUIR DE UMA
