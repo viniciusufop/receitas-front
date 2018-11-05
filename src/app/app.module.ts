@@ -13,6 +13,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {routing} from '../app.routes';
 import {MaterialModule} from '../material.module';
 import {MAT_DATE_LOCALE} from '@angular/material';
+import {PieChartComponent} from './pie-chart/pie-chart.component';
+import {ChartsModule} from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import {MAT_DATE_LOCALE} from '@angular/material';
     MenuComponent,
     HomeComponent,
     ConsultaComponent,
-    CadastroReceitaComponent
+    CadastroReceitaComponent,
+    PieChartComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import {MAT_DATE_LOCALE} from '@angular/material';
     FormsModule,
     routing,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    ChartsModule
   ],
   providers: [ConfigService, ReceitaService,
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}],

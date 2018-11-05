@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Receita} from '../../services/receita';
 import {ReceitaService} from '../../services/receita.service';
-import {Router} from '@angular/router';
 import {Response} from '../../services/response';
-
 
 @Component({
   selector: 'app-consulta-receita',
@@ -14,9 +12,8 @@ export class ConsultaComponent implements OnInit {
 
   private receitas: Receita[] = new Array();
   private titulo: string;
-
-  constructor(private receitaService: ReceitaService,
-              private router: Router) {}
+  constructor(private receitaService: ReceitaService) {
+  }
 
   ngOnInit() {
     /*SETA O TÍTULO */
