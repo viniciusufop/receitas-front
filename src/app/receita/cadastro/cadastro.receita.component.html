@@ -1,45 +1,48 @@
-<form (ngSubmit)="salvar()">
+<div class="row">
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-6 text-center">
+    <form (ngSubmit)="salvar()">
+      <br/>
+      <h3>{{titulo}}</h3>
+      <mat-form-field>
+        <input matInput placeholder="Descrição" size="30" name="descricao"
+               [formControl]="descricaoFormControl"
+               [(ngModel)]="receita.descricao"
+               required>
+        <mat-error *ngIf="descricaoFormControl.invalid">{{getErrorDescricaoMessage()}}</mat-error>
+      </mat-form-field><br/><br/>
+      <mat-form-field>
+        <input matInput [matDatepicker]="myDatepicker" placeholder="Vencimento" name="vencimento"
+               [formControl]="dataVencimentoFormControl"
+               [(ngModel)]="receita.vencimento"
+               required>
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker></mat-datepicker>
+        <mat-error *ngIf="dataVencimentoFormControl.invalid">{{getErrorDataMessage()}}</mat-error>
+      </mat-form-field><br/><br/>
 
-  <br/>
-  <h3>{{titulo}}</h3>
+      <mat-form-field>
+        <input matInput placeholder="Valor" type="number" name="valor"
+               [formControl]="valorFormControl"
+               [(ngModel)]="receita.valor"
+               required>
+        <span matPrefix>R$&nbsp;</span>
+        <mat-error *ngIf="valorFormControl.invalid">{{getErrorValorMessage()}}</mat-error>
+      </mat-form-field><br/><br/>
 
-  <mat-form-field>
-    <input matInput placeholder="Descrição" size="30" name="descricao"
-           [formControl]="descricaoFormControl"
-           [(ngModel)]="receita.descricao"
-           required>
-    <mat-error *ngIf="descricaoFormControl.invalid">{{getErrorDescricaoMessage()}}</mat-error>
-  </mat-form-field><br/><br/>
-
-
-  <mat-form-field>
-    <input matInput [matDatepicker]="myDatepicker" placeholder="Vencimento" name="vencimento"
-           [formControl]="dataVencimentoFormControl"
-           [(ngModel)]="receita.vencimento"
-           required>
-    <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
-    <mat-datepicker #myDatepicker></mat-datepicker>
-    <mat-error *ngIf="dataVencimentoFormControl.invalid">{{getErrorDataMessage()}}</mat-error>
-  </mat-form-field><br/><br/>
-
-  <mat-form-field>
-    <input matInput placeholder="Valor" type="number" name="valor"
-           [formControl]="valorFormControl"
-           [(ngModel)]="receita.valor"
-           required>
-    <span matPrefix>R$&nbsp;</span>
-    <mat-error *ngIf="valorFormControl.invalid">{{getErrorValorMessage()}}</mat-error>
-  </mat-form-field><br/><br/>
-
-  <mat-form-field>
-    <mat-select placeholder="Operação" [formControl]="operacaoFormControl" required>
-      <mat-option>--</mat-option>
-      <mat-option *ngFor="let operacao of operacoes" [value]="operacao">
-        {{operacao}}
-      </mat-option>
-    </mat-select>
-    <mat-error *ngIf="operacaoFormControl.invalid">{{getErrorOperacaoMessage()}}</mat-error>
-  </mat-form-field><br/><br/>
-
-  <button type="submit" class="btn btn-outline-primary" [disabled]="desabilitarSalvar()">Salvar</button>
-</form>
+      <mat-form-field>
+        <mat-select placeholder="Operação" [formControl]="operacaoFormControl" required>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let operacao of operacoes" [value]="operacao">
+            {{operacao}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="operacaoFormControl.invalid">{{getErrorOperacaoMessage()}}</mat-error>
+      </mat-form-field><br/><br/>
+      <button type="submit" class="btn btn-outline-primary" [disabled]="desabilitarSalvar()">Salvar</button>
+    </form>
+  </div>
+  <div class="col-md-3">
+  </div>
+</div>
