@@ -315,15 +315,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _app_receita_consulta_consulta_receita_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app/receita/consulta/consulta.receita.component */ "./src/app/receita/consulta/consulta.receita.component.ts");
 /* harmony import */ var _app_receita_cadastro_cadastro_receita_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/receita/cadastro/cadastro.receita.component */ "./src/app/receita/cadastro/cadastro.receita.component.ts");
-/* harmony import */ var _app_home_home_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app/home/home.component */ "./src/app/home/home.component.ts");
-
 
 
 
 var appRoutes = [
-    { path: 'home', component: _app_home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] },
-    { path: '', component: _app_home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] },
-    { path: 'consulta-receita', component: _app_receita_consulta_consulta_receita_component__WEBPACK_IMPORTED_MODULE_1__["ConsultaComponent"] },
+    { path: '', component: _app_receita_consulta_consulta_receita_component__WEBPACK_IMPORTED_MODULE_1__["ConsultaComponent"] },
+    // { path: 'consulta-receita',         component: ConsultaComponent },
     { path: 'cadastro-receita', component: _app_receita_cadastro_cadastro_receita_component__WEBPACK_IMPORTED_MODULE_2__["CadastroReceitaComponent"] }
 ];
 var routing = _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forRoot(appRoutes);
@@ -406,23 +403,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_config_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./services/config.service */ "./src/app/services/config.service.ts");
 /* harmony import */ var _services_receita_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/receita.service */ "./src/app/services/receita.service.ts");
 /* harmony import */ var _menu_menu_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./menu/menu.component */ "./src/app/menu/menu.component.ts");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _receita_consulta_consulta_receita_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./receita/consulta/consulta.receita.component */ "./src/app/receita/consulta/consulta.receita.component.ts");
-/* harmony import */ var _receita_cadastro_cadastro_receita_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./receita/cadastro/cadastro.receita.component */ "./src/app/receita/cadastro/cadastro.receita.component.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _app_routes__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../app.routes */ "./src/app.routes.ts");
-/* harmony import */ var _material_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../material.module */ "./src/material.module.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _pie_chart_pie_chart_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pie-chart/pie-chart.component */ "./src/app/pie-chart/pie-chart.component.ts");
-/* harmony import */ var ng2_charts__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ng2-charts */ "./node_modules/ng2-charts/index.js");
-/* harmony import */ var ng2_charts__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(ng2_charts__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _receita_consulta_consulta_receita_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./receita/consulta/consulta.receita.component */ "./src/app/receita/consulta/consulta.receita.component.ts");
+/* harmony import */ var _receita_cadastro_cadastro_receita_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./receita/cadastro/cadastro.receita.component */ "./src/app/receita/cadastro/cadastro.receita.component.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _app_routes__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../app.routes */ "./src/app.routes.ts");
+/* harmony import */ var _material_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../material.module */ "./src/material.module.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _pie_chart_pie_chart_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pie-chart/pie-chart.component */ "./src/app/pie-chart/pie-chart.component.ts");
+/* harmony import */ var ng2_charts__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ng2-charts */ "./node_modules/ng2-charts/index.js");
+/* harmony import */ var ng2_charts__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(ng2_charts__WEBPACK_IMPORTED_MODULE_14__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -446,74 +441,27 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
                 _menu_menu_component__WEBPACK_IMPORTED_MODULE_6__["MenuComponent"],
-                _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"],
-                _receita_consulta_consulta_receita_component__WEBPACK_IMPORTED_MODULE_8__["ConsultaComponent"],
-                _receita_cadastro_cadastro_receita_component__WEBPACK_IMPORTED_MODULE_9__["CadastroReceitaComponent"],
-                _pie_chart_pie_chart_component__WEBPACK_IMPORTED_MODULE_14__["PieChartComponent"]
+                _receita_consulta_consulta_receita_component__WEBPACK_IMPORTED_MODULE_7__["ConsultaComponent"],
+                _receita_cadastro_cadastro_receita_component__WEBPACK_IMPORTED_MODULE_8__["CadastroReceitaComponent"],
+                _pie_chart_pie_chart_component__WEBPACK_IMPORTED_MODULE_13__["PieChartComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormsModule"],
-                _app_routes__WEBPACK_IMPORTED_MODULE_11__["routing"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_10__["ReactiveFormsModule"],
-                _material_module__WEBPACK_IMPORTED_MODULE_12__["MaterialModule"],
-                ng2_charts__WEBPACK_IMPORTED_MODULE_15__["ChartsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"],
+                _app_routes__WEBPACK_IMPORTED_MODULE_10__["routing"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"],
+                _material_module__WEBPACK_IMPORTED_MODULE_11__["MaterialModule"],
+                ng2_charts__WEBPACK_IMPORTED_MODULE_14__["ChartsModule"],
                 // MatFormFieldModule,
-                _angular_material__WEBPACK_IMPORTED_MODULE_13__["MatSelectModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatSelectModule"],
             ],
             providers: [_services_config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigService"], _services_receita_service__WEBPACK_IMPORTED_MODULE_5__["ReceitaService"],
-                { provide: _angular_material__WEBPACK_IMPORTED_MODULE_13__["MAT_DATE_LOCALE"], useValue: 'pt-BR' }],
+                { provide: _angular_material__WEBPACK_IMPORTED_MODULE_12__["MAT_DATE_LOCALE"], useValue: 'pt-BR' }],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/home/home.component.html":
-/*!******************************************!*\
-  !*** ./src/app/home/home.component.html ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "{{mensagem}}\r\n"
-
-/***/ }),
-
-/***/ "./src/app/home/home.component.ts":
-/*!****************************************!*\
-  !*** ./src/app/home/home.component.ts ***!
-  \****************************************/
-/*! exports provided: HomeComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
-        this.mensagem = 'Página Inicial.';
-    }
-    HomeComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-home',
-            template: __webpack_require__(/*! ./home.component.html */ "./src/app/home/home.component.html")
-        })
-    ], HomeComponent);
-    return HomeComponent;
 }());
 
 
@@ -747,7 +695,7 @@ var CadastroReceitaComponent = /** @class */ (function () {
             this.receita.valor = this.receita.valor * -1;
         }
         this.receitaService.addReceita(this.receita).subscribe(function (response) {
-            _this.router.navigate(['/consulta-receita']);
+            _this.router.navigate(['/']);
         }, function (error) {
             alert(error);
         });

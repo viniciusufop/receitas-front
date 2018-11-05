@@ -6,7 +6,6 @@ import {AppComponent} from './app.component';
 import {ConfigService} from './services/config.service';
 import {ReceitaService} from './services/receita.service';
 import {MenuComponent} from './menu/menu.component';
-import {HomeComponent} from './home/home.component';
 import {ConsultaComponent} from './receita/consulta/consulta.receita.component';
 import {CadastroReceitaComponent} from './receita/cadastro/cadastro.receita.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -20,7 +19,6 @@ import {ChartsModule} from 'ng2-charts';
   declarations: [
     AppComponent,
     MenuComponent,
-    HomeComponent,
     ConsultaComponent,
     CadastroReceitaComponent,
     PieChartComponent

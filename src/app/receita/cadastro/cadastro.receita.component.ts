@@ -38,7 +38,7 @@ export class CadastroReceitaComponent implements OnInit {
       this.receita.valor = this.receita.valor * -1;
     }
     this.receitaService.addReceita(this.receita).subscribe(response => {
-      this.router.navigate(['/consulta-receita']);
+      this.router.navigate(['/']);
     }, (error) => {
         alert(error);
     });
